@@ -98,7 +98,8 @@ class UserModelController extends Controller
             'color'         => $userInfo->color /*== null ? "" : $userInfo->color*/,
             'res'           => $userInfo->res /*== null ? "" : $userInfo->res*/,
             'course'        => $userInfo->course /*== null ? "" : $userInfo->course*/,
-            'frequent_place'=> $userInfo->frequent_place /*== null ? "" : $userInfo->frequent_place*/
+            'frequent_place'=> $userInfo->frequent_place /*== null ? "" : $userInfo->frequent_place*/,
+            'verified'      => Follow::all()->where('user_2_id', $userInfo->user_id)->count() > 10
         ];
 
     }

@@ -372,8 +372,9 @@
         color    : args.info.color,
         location   : args.info.res,
         course   : args.info.course,
-        place    : args.info.frequent_place // Frequent Place
-
+        place    : args.info.frequent_place, // Frequent Place
+        verified : args.info.verified
+        
       } // User Biography Info
 
     this.images = {

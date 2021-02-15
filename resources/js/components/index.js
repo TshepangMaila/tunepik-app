@@ -23,6 +23,8 @@ import Snackbar from './Snackbar'
 import Picture from './Picture'
 import ProfileSnippet from './builders/snippets/ProfileSnippet'
 import Name from './Name'
+import UserName from './UserName'
+import Verified from './Verified'
 
 import { HasError, AlertError, AlertSuccess } from 'vform'
 
@@ -47,7 +49,9 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Snackbar,
   ProfileSnippet,
   Picture,
-  Name
+  Name,
+  UserName,
+  Verified
 ].forEach(Component => {
   Vue.component(Component.name, Component)
 })

@@ -12,10 +12,11 @@
       <router-link v-bind:to="{ name : 'profile', params :{ username : post.getBasic().handle } }">
 
         <a @click="SET_PROFILE(post)">
-         <span class="app-bolder-text">{{ post.getBasic().name }}</span>
+         <!-- <span class="app-bolder-text">{{ post.getBasic().name }}</span>
          <span class="profile-user-handle app-post-text" style="display: block;line-height: 1;">
             @{{ post.getBasic().handle }}
-          </span>
+          </span> -->
+          <user-name :user="post"></user-name>
         </a>
 
       </router-link>
