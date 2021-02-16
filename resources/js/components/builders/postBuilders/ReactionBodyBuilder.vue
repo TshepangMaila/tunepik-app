@@ -29,7 +29,6 @@
               <a @click="like()" class="p-1">
 
                 <Icon :icon="'heart'" :height="iconSize" :width="iconSize" :color="'red'" v-if="post.getStats().isLiked"></Icon>
-
                 <Icon :icon="'heartEmpty'" :height="iconSize" :width="iconSize" v-else></Icon>
 
               </a>
@@ -168,13 +167,13 @@
 
       </div>
 
-        <span v-if="post.getStats().comCount > 0">
+        <!-- <span v-if="post.getStats().comCount > 0">
 
             <span class="app-bolder-text ml-2">{{ post.getStats().comCount }}</span>
             <span class="app-grey-text-lg" v-if="post.getStats().comCount > 1"> comments</span>
             <span class="app-grey-text-lg" v-else-if="post.getStats().comCount == 1"> commented</span>
 
-        </span>
+        </span> -->
 
      </div>
 
@@ -216,8 +215,6 @@
        </div>
 
      </div>
-
-
 
   </div>
 

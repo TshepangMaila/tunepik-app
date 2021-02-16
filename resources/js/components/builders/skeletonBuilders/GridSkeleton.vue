@@ -67,12 +67,14 @@
 				width: 100%;
 				height: 250px;
 				margin: 1.5px;
+				border-radius: 15px;
 			}
 
 			.two-cols{
 				width : 100%;
 				height: 250px;
 				margin: 1.5px;
+				border-radius: 15px;
 			}
 
 		}
@@ -81,14 +83,16 @@
 
 			.three-cols{
 				width: 100%;
-				height: 200px;
+				height: 120px;
 				margin: 0 0 1.5px 0;
+				border-radius: 15px;
 			}
 
 			.two-cols{
 				width : 100%;
-				height: 200px;
+				height: 120px;
 				margin: 0 0 1.5px 0;
+				border-radius: 15px;
 			}
 
 		}

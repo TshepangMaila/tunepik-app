@@ -227,7 +227,7 @@ class SearchModelController extends Controller
              * */
             $response['trends'][] = [
 
-                                    'trend_hash'      => "#{$hash->trend}",
+                                    'trend_hash'      => "{$hash->trend}",
                                     'trend_count'     => $count,
                                     'message'         => "Found In {$count} Conversations"
 

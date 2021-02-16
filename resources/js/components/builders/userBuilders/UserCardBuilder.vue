@@ -1,7 +1,18 @@
 <template>
 
 		 
-		<div class="user-card-wrapper mt-1">
+		<div class="user-card-wrapper mt-1" v-show="!hide">
+
+			<div class="media">
+				<div class="media-body"></div>
+				<div class="media-right align-self-center">
+					
+					<a @click="hide = !hide">
+						<i class="app-fa fa fa-times"></i>
+					</a>
+
+				</div>
+			</div>
 
 			<!-- User Image! -->
 				<div class="user-image-wrap pt-2">
@@ -23,22 +34,22 @@
 				   	  	</router-link>
 
 				   	  </div>
-				   	  <span class="app-grey-text-sm" v-if="user.getInfo().bio == null">
+				   	  <span class="app-grey-text-sm" > <!-- v-if="user.getInfo().bio == null" -->
 								<i class="app-fa fas fa-calendar-alt mr-1"></i>
 								Joined {{ user.getBasic().date }}
 							</span>
-							<span class="app-post-text" v-else>
+							<!-- <span class="app-post-text" v-else>
 
 								{{ trim(user.getInfo().bio, 30) }}
 
-							</span>
+							</span> -->
 
 				   </center>
 
 				   <div class="space-small"></div>
 
 				   <!-- Follow Button Place -->
-				   <div class="user-follow-btn pl-3 pr-3" style="width: 100%;">
+				   <div class="user-follow-btn pl-2 pr-2" style="width: 100%;">
 				   	
 				   		<center>
 				   			<FollowButton :user="user" :classes="'btn-sm btn-block'"></FollowButton>
@@ -49,7 +60,7 @@
 				   <div class="space-medium"></div>
 				   
 				   <!-- User Stats -->
-				   <div class="user-stats-wrapper m-0 grey-matter">
+				   <!-- <div class="user-stats-wrapper m-0 grey-matter">
 				   	
 				   		<table class="table">
 				   				<tr>
@@ -109,7 +120,7 @@
 				   				</tr>
 				   		</table>
 
-				   </div>
+				   </div> -->
 
 				</div>
 
@@ -127,6 +138,9 @@
     export default {
 
         name       : "UserCardBuilder",
+        data : () => ({
+        	hide : false
+        }),
         components : {
 
         	FollowButton
@@ -162,6 +176,7 @@
 				  /*border : .05em solid lightgrey;*/
 				  -webkit-box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
 	        box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
+	        border-radius: 12px;
 			}
 
 		}
@@ -175,6 +190,7 @@
 				  /*border : .05em solid lightgrey;*/
 				  -webkit-box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
 	        box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
+	        border-radius: 12px;
 			}
 
 		}

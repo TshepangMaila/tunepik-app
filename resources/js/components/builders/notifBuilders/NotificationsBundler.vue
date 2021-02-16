@@ -3,7 +3,7 @@
 	 <div class="" v-if="notifications.loading">
 
 	 	
-	 	<UserListSkeleton></UserListSkeleton>
+	 	<NotificationSkeleton></NotificationSkeleton>
 	 	
 
 	 </div>
@@ -14,7 +14,7 @@
 
 	 	 	<div class="list-group" v-for="(notification, index) in notifications.notifs">
 
-	 	 		<div class="list-group-item list-group-item-action">
+	 	 		<div class="list-group-item list-group-item-action no-border">
 
 	 	 			<LikesNotification :notification="notification" v-if="notification.getNotification().notifType == 'like'"></LikesNotification>
 
@@ -36,6 +36,12 @@
 	 	 	  <div class="app-deleted-post grey-matter">
 	 	 	  	
 	 	 	  	<center>
+
+	 	 	  		<div class="icon-holder">
+	 	 	  			
+	 	 	  			<i class="app-fa fa fa-bell-slash"></i>
+
+	 	 	  		</div>
 	 	 	  	
 		 	 	  	<span class="app-small-text">
 		 	 	  		{{ notifications.message }}
@@ -54,7 +60,7 @@
 
 <script>
 
-	import UserListSkeleton from '../skeletonBuilders/UserListSkeleton'
+	import NotificationSkeleton from '../skeletonBuilders/NotificationSkeleton'
 	import CommentNotification from './CommentNotification'
 	import FollowNotification from './FollowNotification'
 	import LikesNotification from './LikesNotification'
@@ -70,7 +76,7 @@
 
   	},
   	components : {
-  		UserListSkeleton,
+  		NotificationSkeleton,
   		CommentNotification,
   		FollowNotification,
   		LikesNotification,
@@ -93,8 +99,19 @@
 
    }
 
+ /*  .list-group-item{
+
+			border : 0;
+			padding: 5px;
+
+		}*/
+
    .like-icon{
    	color: red;
+   }
+   .app-fa{
+   	width: 50px;
+   	height: 50px;
    }
 
 </style>

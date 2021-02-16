@@ -31,7 +31,7 @@
 					<div class="card" v-if="search.data.users.user">
 						
 						<div class="card-header">
-							<span class="app-bolder-text">Accounts</span>
+							<span class="app-bolder-text">Users</span>
 						</div>
 
 						<div class="card-body">
@@ -90,7 +90,7 @@
 								
 								<div class="media-body">
 
-									<span class="app-mid-text">Go To {{ search.data.words.list.count }} Posts That Mention This {{ search.data.words.list.term }}</span>
+									<span class="app-mid-text">{{ search.data.words.list.count }} posts mention "{{ search.data.words.list.term }}"</span>
 
 								</div>
 								<div class="media-right"></div>

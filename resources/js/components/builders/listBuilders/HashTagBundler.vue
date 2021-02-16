@@ -1,14 +1,31 @@
 <template>
 
 
-	<div class="list-group" v-if="tags.length > 0">
+	<div class="" v-if="tags.length > 0">
 		
-		<div class="list-group-item" v-for="(tag, key) in tags">
+		<div class="list-group" v-for="(tag, key) in tags">
 			
-			<span class="app-hash block-text">#{{ tag.getHash().hash }}</span>
-			<span class="app-grey-text-sm">{{ tag.getHash().message }}</span>
+			<router-link :to="{ name : 'results', query : { type : 'posts' }, params : { term : tag.getHash().hash } }">
 
-		</div>
+			<div class="media">
+				
+				<div class="align-self-center">
+					<center>
+						<span class="app-bolder-text">
+							#
+						</span>
+					</center>
+				</div>
+				<div class="media-body align-self-center">
+					<span class="block-text app-bold-text">{{ tag.getHash().hash }}</span>
+					<span class="app-grey-text-sm">{{ tag.getHash().message }}</span>
+				</div>
+
+			</div>
+
+		</router-link>
+
+	</div>
 
 	</div>
 	<div class="app-deleted-post grey-matter" v-else>

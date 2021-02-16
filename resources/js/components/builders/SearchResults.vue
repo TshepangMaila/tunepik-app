@@ -44,7 +44,7 @@
 
 		<div class="space-large visible-large"></div>
 		<div class="space-large visible-large"></div>
-		<div class="wrap-users" v-if="search.data.users.found">
+		<div class="wrap-users" v-if="search.data.users.found && queryType != 'posts'">
 
 			<UserListBundler :message="search.data.users.message" :users="search.data.users.list" :showGrid="false"></UserListBundler>
 
@@ -152,6 +152,9 @@
 			term : function(){
 				return this.$route.params.term
 			},
+			queryType : function(){
+				return this.$router.query.type
+			},
       url : function(){
 			  return `/api/posts/search/feed/${this.term}`
       }
@@ -176,7 +179,7 @@
 
 				this.query = term
 
-				this.fetchPosts()
+				this.getResults()
 
 			}
 

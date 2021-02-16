@@ -14,17 +14,10 @@
             <!-- Actual Post -->
 
             <MediaBodySwitch :post="post"></MediaBodySwitch>
-
-            <template v-if="post.getPost().type == 'deleted'">
               
-              <DeletedBodyBuilder :post="post"></DeletedBodyBuilder>
-
-            </template>
-            <template v-else>
+              <DeletedBodyBuilder :post="post" v-if="post.getPost().type == 'deleted'"></DeletedBodyBuilder>
               
-              <TextBodyBuilder class="" :post="post"></TextBodyBuilder>
-
-            </template>
+              <TextBodyBuilder class="" :post="post" v-else></TextBodyBuilder>
 
             <template v-if="!post.getStats().isOriginal">
 
@@ -45,16 +38,12 @@
       </div>
 
       <!-- Show One Comment If Post Has Comment! -->
-
-      <!-- <template v-if="post.getComment().has && comments">
         
-        <div class="feed-comment-wrapper mt-1 ">
+        <div class="feed-comment-wrapper mt-1" v-if="post.getComment().has && comments">
           
            <CommentBodyBuilder :comment="post.getComment().comment" class="pl-2 pr-2"></CommentBodyBuilder>
 
         </div>
-
-      </template> -->
 
       <div class="space-large visible-lg"></div>
       <div class="space-medium visible-sm"></div>
