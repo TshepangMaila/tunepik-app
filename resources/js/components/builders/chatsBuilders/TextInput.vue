@@ -1,7 +1,9 @@
 <template>
 
 	<div class="navbar fixed-bottom" v-if="screen && !message.loading">
-						
+
+		<look-up class="look-up-wrap"></look-up>
+
 		<div class="media-wrapper" style="width:100%;" v-if="!user.model.getActivity().blocked">
 			
 			<form style="width:100%;" @submit.prevent="sendMessage(formDATA)">
@@ -137,6 +139,7 @@
 	import { mapGetters, mapActions, mapMutations } from 'vuex'
 	import globs from '../../../tunepik/attack.js'
 	import AudioBodyBuilder from '../postBuilders/AudioBodyBuilder'
+	import LookUp from '../uploadBuilders/LookUp'
 	
 	export default {
 
@@ -152,12 +155,13 @@
 			show : false,
 		}),
 		components : {
-			AudioBodyBuilder
+			AudioBodyBuilder,
+			LookUp
 		},
 		methods    : {
 
 				...mapActions("recorder", ['init', 'toggleRecording', 'startRecording', 'stopRecording', 'cancelRecording']),
-				...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done']),
+				...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done', 'setText']),
 				...mapActions("upload", ['userUpload']),
 				sendMessage	 	: async function(data){
 
@@ -207,7 +211,7 @@
 
 				...mapGetters("messages", ['message', 'user']),
 				...mapGetters("recorder", ['record']),
-				...mapGetters("files", ['image', 'checks', 'file']),
+				...mapGetters("files", ['image', 'checks', 'file', 'Text']),
 				...mapGetters("upload", ['upload']),
 				uploadedFile : function(){
 
@@ -250,6 +254,12 @@
 			},
 			watch 			 : {
 
+				Text : function(text){
+					this.form.text = text
+				},
+				'form.text' : function(text){
+					if(text) this.setText(text)
+				},
 				'image.src' : function(val){
 
 				 	/*this.$store.commit('files/isSet', val != "");
@@ -282,6 +292,21 @@
 		@media only screen and (max-width: 700px){
 
 
+		}
+
+		.look-up-wrap{
+			position: absolute;
+			bottom: 46px;
+			left: 10%;
+		}
+
+		.media-wrapper{
+			position: fixed;
+			bottom:0;
+			left: 0;
+			right: 0;
+			height:45px;
+			width: 100%;
 		}
 
 		.upload-text{
