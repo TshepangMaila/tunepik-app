@@ -8,17 +8,7 @@
 				
 				<div class="message-image message-block">
 					
-					<!-- <span class="app-grey-text-sm ml-1" v-if="text.getActivity().me">
-						{{ text.getMessage().now }}
-					</span> -->
 					<Picture :height="40" :width="40" :user="text" v-if="!text.getActivity().me"></Picture>
-					<!-- <image-loader 
-							:src="text.getImgs().profile" 
-							:placeholder="text.getImgs().profile"
-							width="15px"
-						  height="15px" 
-						  class="rounded-circle" 
-						  v-else /> -->
 
 				</div>
 
@@ -43,18 +33,6 @@
 				<div class="message-block message-image">
 					
 					<Picture :height="40" :width="40" :user="text" v-if="text.getActivity().me"></Picture>
-					<!-- <image-loader 
-							:src="text.getImgs().profile"
-							:placeholder="text.getImgs().profile"
-							width="30px" 
-							height="30px" 
-							class="rounded-circle" 
-							v-if="text.getActivity().me" /> -->
-
-					<!-- <span class="app-grey-text-sm ml-1" v-else>
-						<br />
-						{{ text.getMessage().now}}
-					</span> -->
 
 				</div>
 

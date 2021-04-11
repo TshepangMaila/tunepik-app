@@ -12,9 +12,9 @@
 							
 							<div class="skeleton-shimmer skeleton-image" v-if="item%2 != 0"></div>
 
-						<div class="media-body">
+						<div class="media-body align-self-center">
 							
-							<div class="bubble-text-shade skeleton-shimmer"></div>
+							<div class="bubble-text-shade skeleton-shimmer" :class="[item%2 == 0 ? 'bubble-to-right' : '']"></div>
 
 						</div>
 
@@ -61,6 +61,11 @@
 			width: 50%;
 			border-radius: 10px;
 
+		}
+
+		.bubble-to-right{
+			position: absolute;
+			right: 5%;
 		}
 
 		.list-group-item{
