@@ -44,9 +44,11 @@
 		
 			<div class="nav fixed-bottom record-bottom pr-2 pl-2 pb-1" v-if="screen && checks.done">
 
+				<look-up class="look-up-wrap"></look-up>
+
 					<div class="comment-box-wrapper mt-2 mb-2">
 						
-						<textarea class="comment-box" :placeholder="placeholder" v-model="form.text"></textarea>
+						<textarea class="comment-box" :placeholder="placeholder" v-model="text"></textarea>
 
 					</div>
 				
@@ -137,20 +139,23 @@
 	import PostSnippet from '../snippets/PostSnippet'
 	import WorkFiles from '../uploadBuilders/WorkFiles'
 	import UploadCover from '../uploadBuilders/UploadCover'
+	import LookUp from '../uploadBuilders/LookUp'
 	
 	export default {
 
 		name : 'PostExtend',
 		data : () => ({
 			trim : globs.trim,
-			screen : globs.app.isMobile
+			screen : globs.app.isMobile,
+			text : ''
 		}),
 		components : {
 
 			Navigation,
 			WorkFiles,
 			PostSnippet,
-			UploadCover
+			UploadCover,
+			LookUp
 
 		},
 		props : ['comment'],
@@ -158,7 +163,7 @@
 
 			...mapActions("recorder", ['init', 'toggleRecording', 'startRecording', 'stopRecording', 'cancelRecording']),
 			...mapActions("upload", ['userUpload']),
-			...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done']),
+			...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done', 'setText']),
 			...mapMutations("tunepik", ['SNACK_BAR']),
 			uploaded : function(response){
 
@@ -173,16 +178,11 @@
 
 			...mapGetters('posts', ['focusPost']),
 			...mapGetters('recorder', ['record']),
-			...mapGetters("files", ['image', 'checks', 'file']),
+			...mapGetters("files", ['image', 'video', 'checks', 'file', 'Text']),
 			...mapGetters("upload", ['upload']),
 			uploadedFile : function(){
 
-				if(this.record.audio.file == null && this.image.file == null) return ''
-					else{
-
-				 	 return this.record.audio.file || this.image.file;
-
-				 }
+				 return this.record.audio.file || this.image.file || this.video.file || ''
 
 			},
 			post : function(){ 
@@ -202,8 +202,10 @@
 			},
 			form : function() {
 
+				this.text = this.comment ? `@${this.post.getBasic().handle} ` : ''
+
 				return {
-					text : this.comment ? `@${this.post.getBasic().handle} ` : '',
+					text : this.text,
 					media : this.uploadedFile,
 					url : this.comment ? `/api/upload/comment/${this.post.getPost().id}` : `/api/upload/share/${this.post.getPost().id}`
 				}
@@ -213,14 +215,16 @@
 				return this.$router.currentRoute.params
 			},
 			
-
 		},
 		watch 			 : {
 
+			'Text' : function(text){
+				this.text = text
+			},
+			text : function(text){
+				 if(text) this.setText(text)
+			},
 			'image.src' : function(val){
-
-			 	/*this.$store.commit('files/isSet', val != "");
-			 	this.$store.commit('files/chosen', val != "")*/
 
 			 	this.isFile(val != "");
 			 	this.done(val == "")
@@ -271,6 +275,13 @@
 </script>
 
 <style type="text/scss" scoped>
+
+	.look-up-wrap{
+			position: absolute;
+			bottom: 46px;
+			left: 10%;
+		}
+
 
 	.wrapper{
 

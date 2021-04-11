@@ -149,21 +149,7 @@
 					}
 				},
 				uploadedFile : function(){
-
-						if(this.record.audio.file == null && this.image.file == null && this.video.file == null){
-
-							console.log('NULLLLL')
-
-						 	 return ''
-
-						 }else{
-
-						 	console.log('IS THERERERER')
-
-						 	 return this.record.audio.file || this.image.file || this.video.file;
-
-						 }
-
+					return this.record.audio.file || this.image.file || this.video.file || ''
 				}
 
 			},
@@ -176,10 +162,7 @@
 					if(text) this.setText(text)
 				},
 				'image.src' : function(val){
-
-				 	/*this.$store.commit('files/isSet', val != "");
-				 	this.$store.commit('files/chosen', val != "")*/
-
+					
 				 	this.isFile(val != "");
 				 	this.done(val == "")
 					this.isSet(val != "");
