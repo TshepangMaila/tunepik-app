@@ -1,4 +1,6 @@
 <template>
+
+	<div class="wrapper"></div>
 	
 </template>
 
@@ -6,7 +8,8 @@
 	
 	export default {
 
-		name 	: "StoryItem",
+		name 	: "StoryFace",
+		props : ['url'],
 
 	};
 
