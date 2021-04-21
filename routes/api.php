@@ -134,11 +134,15 @@ Route::group([
 
     Route::get('liked/{userId}', 'PostModelController@liked');
 
-    Route::get('stories/', 'StoriesModelController@stories');
-
-    Route::get('stories/{Id}', 'StoriesModelController@userStories');
-
     Route::get('search/feed/{term}', 'PostModelController@search');
+
+});
+
+Route::group([ 'prexix' => 'stories'], function (){
+
+    Route::get('all/', 'StoriesModelController@stories');
+
+    Route::get('{Id}/', 'StoriesModelController@userStories');
 
 });
 

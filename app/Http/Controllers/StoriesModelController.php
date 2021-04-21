@@ -49,6 +49,10 @@ class StoriesModelController extends Controller
 
     }
 
+    public function storyViewers(Request $request, $storyId){
+
+    }
+
     private function buildStoriesFeed(array $stories){
 
         $response['message'] = 'Stories Available';
