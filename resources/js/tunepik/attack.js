@@ -374,7 +374,7 @@
         course   : args.info.course,
         place    : args.info.frequent_place, // Frequent Place
         verified : args.info.verified
-        
+
       } // User Biography Info
 
     this.images = {
@@ -467,6 +467,33 @@ class UserAnalytics extends UserModel {
   getMediaInteraction(){ return this.media_interaction; } // End Of Media Interaction
 
 } // End Of UserAnalytics
+class StoryModel extends UserModel{
+
+   constructor(args) {
+
+     super(args.user);
+
+     this.story = {
+
+       id     : args.story.story_id,
+       text   : args.story.story_message,
+       url    : args.story.story_url,
+       time   : args.story.story_time,
+       date   : args.story.story_date,
+       type   : args.story.story_type,
+
+     }
+
+     this.stats = {
+
+       viewCount : args.view_count,
+
+     }
+
+   }
+
+}
+
 
 class PostModel extends UserModel{
   // Constructor

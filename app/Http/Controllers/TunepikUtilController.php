@@ -61,6 +61,9 @@ class TunepikUtilController extends Controller
 
     }
 
+    public static function id(){
+        return auth('api')->check() ? auth('api')->user()->user_id : 0;
+    }
     public static function hasUser(){}
     public static function hasPost(){}
     public static function isNumber(){}

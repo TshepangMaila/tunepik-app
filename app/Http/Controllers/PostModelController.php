@@ -341,7 +341,7 @@ class PostModelController extends Controller
                             /*->first();*/
 
             if($post->count() == 0) continue;
-            
+
             /*$RAW_POST = [
                 'user_id'        => $post->user_id,
                 'media_url'      => $post->media_url,
@@ -435,46 +435,6 @@ class PostModelController extends Controller
                  "follow"   => false,
                  "user"     => (new UserModelController)->buildUser($mReaction->first()->liker_id)
                ];
-
-    }
-
-    /**
-     * Get Time Difference
-     * */
-
-    public function timeDifference(Post $mPost){
-
-        $now = Carbon::now();
-
-        $timePosted = Carbon::parse("{$mPost->media_date} {$mPost->media_time}");
-
-        $minutes = $timePosted->diffInMinutes($now);
-
-        if($minutes <= 2){ // Just Now
-
-        	return 'just now';
-
-        }else if ($minutes > 2 && $minutes < 60) { // Minutes, Less Than An Hour
-
-        	return $minutes.'m ago';
-
-        }else if($minutes >= 60 && $minutes < 1440){ // Hours, Less Than A Day
-
-        	return round(($minutes/60)).'h ago';
-
-        }else if($minutes >= 1440 && $minutes < 10080){ // Days, Less Than A Week
-
-            return round(($minutes / 1440)).'d ago';
-
-        }else if($minutes >= 10080 && $minutes < 40320){ // Weeks, Less Than A Month
-
-            return round(($minutes / 10080)).'wk ago';
-
-        }else{
-
-            return "{$mPost->media_time} {$mPost->media_date}";
-
-        }
 
     }
 
