@@ -1,12 +1,7 @@
 import globs from '../../tunepik/attack.js'
 
 
-/*const story = {
 
-	userId,
-	userStories : [...stories]
-
-}*/
 
 function findStoryEntry(stateStories, story){
 
