@@ -20,7 +20,15 @@
 
   			<div class="space-medium visible-lg"></div>
 
-  			<StorySlideBundler :url="storyURL"></StorySlideBundler>
+  			<StorySlideBundler :url="storyURL">
+  				
+  				<div class="media-left align-self-center">
+  					
+  					<add-story></add-story>
+
+  				</div>
+
+  			</StorySlideBundler>
   			
   			<FeedPosts ></FeedPosts>
 
@@ -52,34 +60,29 @@
  import RightSideBuilder from '../components/desktop/homeComp/RightSideBuilder'
  import HeadNavbar from '../components/mobile/HeadNavbar'
  import StorySlideBundler from '../components/builders/storyBuilders/StorySlideBundler'
+ import AddStory from '../components/builders/storyBuilders/AddStory'
  import { mapGetters, mapActions, mapMutations } from 'vuex'
 
  export default {
 	name 				: 'Home',
 	scrollToTop : false,
 	components 	: {
-
 		RightSideBuilder,
 		HeadNavbar,
-		StorySlideBundler
-
+		StorySlideBundler,
+		AddStory
 	},
 	data 				: () => ({
-
 		screen : globs.app.isMobile,
 		imgs   : '*.png, *.jpeg, *.jpg ',
 		storyURL : '/api/stories/all'
-
 	}),
 	methods  : {
-
 		...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done']),
-
 	},
 	computed : {
-
-		...mapGetters("files", ['image'])
-
+		...mapGetters("files", ['image']),
+		...mapGetters("auth", ['model'])
 	},
 	watch  : {
 

@@ -29,7 +29,11 @@
 				<div class="visible-xs space-large"></div>
 				<div class="visible-xs space-medium"></div>
 
-				<PostSnippet :post="post" v-if="checks.done"></PostSnippet>
+				<div class="" v-if="comment == 'comment' || comment == 'share'">
+					
+					<PostSnippet :post="post" v-if="checks.done"></PostSnippet>
+
+				</div>
 
 				<WorkFiles :round="false" v-if="file"></WorkFiles>
 
@@ -147,7 +151,10 @@
 		data : () => ({
 			trim : globs.trim,
 			screen : globs.app.isMobile,
-			text : ''
+			text : '',
+			header : '',
+			placeholder : '',
+			url : '',
 		}),
 		components : {
 
@@ -166,13 +173,11 @@
 			...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done', 'setText']),
 			...mapMutations("tunepik", ['SNACK_BAR']),
 			uploaded : function(response){
-
 				if(!response.error) this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
 
 				this.SNACK_BAR({ isOpen : true, message : response.message, theme : response.error ? 'danger' : 'info' })
 
 			}
-
 		},
 		computed : {
 
@@ -181,35 +186,52 @@
 			...mapGetters("files", ['image', 'video', 'checks', 'file', 'Text']),
 			...mapGetters("upload", ['upload']),
 			uploadedFile : function(){
-
 				 return this.record.audio.file || this.image.file || this.video.file || ''
-
 			},
 			post : function(){ 
-
 				return this.focusPost
-
-			 },
-			placeholder : function(){ 
-
-				return this.comment ? `Reply @${this.post.getBasic().handle}` : `Share @${this.post.getBasic().handle}` 
-			
 			},
-			header : function(){
+			crumbs : function(){
 
-				return this.comment ? `Reply @${this.trim(this.post.getBasic().handle, 8)}` : `Share @${this.trim(this.post.getBasic().handle, 8)}`
+				switch (this.comment) {
+					case 'comment' :
+							this.header = `Share @${this.trim(this.post.getBasic().handle, 8)}`
+							this.placeholder = `Reply @${this.post.getBasic().handle}`
+							this.url = `/api/upload/comment/${this.post.getPost().id}`
+							this.text = `@${this.post.getBasic().handle} `
+						break;
 
-			},
-			form : function() {
+					case 'share' :
+							this.header = `Reply @${this.trim(this.post.getBasic().handle, 8)}`
+							this.placeholder = `Share @${this.post.getBasic().handle}`
+							this.url = `/api/upload/share/${this.post.getPost().id}`
+							this.text = ''
+						break;
 
-				this.text = this.comment ? `@${this.post.getBasic().handle} ` : ''
-
-				return {
-					text : this.text,
-					media : this.uploadedFile,
-					url : this.comment ? `/api/upload/comment/${this.post.getPost().id}` : `/api/upload/share/${this.post.getPost().id}`
+					case 'story' :
+							this.header = 'Add Your Story' 
+							this.placeholder = 'caption...'
+							this.url = '/api/upload/story/'
+							this.text = ''
+						break;
+					default:
+						// statements_def
+						break;
 				}
 
+				return {
+					header 			: this.header,
+					placeholder : this.placeholder,
+					url 				: this.url,
+					text 				: this.text
+				}
+			},
+			form : function() {
+				return {
+					text : this.crumbs.text,
+					media : this.uploadedFile,
+					url : this.crumbs.url
+				}
 			},
 			currentRoute : function(){
 				return this.$router.currentRoute.params
@@ -245,15 +267,16 @@
 
 				if(!newData.error) this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
 
-				if(this.comment){
+
+				if(this.comment == 'comment'){
 
 					this.post.getStats().isCommented = newData.uploaded ? true : false
 
-				}else{
+				}else if(this.comment == 'share'){
 
 					this.post.getStats().hasShared = newData.uploaded ? true : false
 
-				}
+				}else if(this.comment == 'story'){}
 
 			}
 

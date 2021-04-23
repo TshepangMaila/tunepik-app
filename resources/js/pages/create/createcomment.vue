@@ -1,6 +1,6 @@
 <template>
 
-	<PostExtend :comment="true"></PostExtend>
+	<post-extend :comment="comment"></post-extend>
 	
 </template>
 

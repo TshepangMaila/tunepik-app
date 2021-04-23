@@ -1,6 +1,6 @@
 <template>
 
-	<PostExtend :comment="share"></PostExtend>
+		<post-extend :comment="story"></post-extend>
 	
 </template>
 
@@ -9,16 +9,12 @@
 	import PostExtend from '../../components/builders/bundlers/PostExtend'
 	
 	export default {
-
-		name :  'CreateComment',
+		name 		: "createstory",
 		components : {
 			PostExtend
 		}
-
 	};
 
 </script>
 
-<style type="text/scss" scoped>
-	
-</style>
+<style type="text/css" scoped></style>

@@ -38,6 +38,8 @@ export default [
   { path : '/search', name : 'search', component : page('search.vue')},
   { path : '/notifications', name : 'notifications', component : page('notifications.vue')},
   { path : '/explore', name : 'explore', component : page('explore.vue') },
+  { path : '/stories', name : 'gridstories', component : page('stories/gridstories.vue')},
+  { path : '/stories/:username/:id', name : 'stories', component : page('stories/userstories.vue')},
   { path : '/create/post', name : 'createPost', component : page('create/createpost.vue')},
   { path : '/search/:term', name : 'results', component : page('bundle/results.vue') },
   { path : '/report/:type', name : 'report', component : page('bundle/report.vue')},
@@ -55,13 +57,13 @@ export default [
     ]
   },
 
-
   /*  CREATE NEW STUFF */
 
   // { path : '/:username/:id/create/comment', name : 'createComment', component : page('create/comment.vue')},
   { path : '/p/:username/:type/:id', name : 'comment', component : page('comment/viewPost.vue') },
   { path : '/p/:username/:type/:id/comment', name : 'createcomment', component : page('create/createcomment.vue') },
   { path : '/p/:username/:type/:id/share', name : 'share', component : page('create/createshare.vue') },
+  { path : '/s/:username/story', name : 'story', component : page('create/createstory.vue') },
   // { path : '/messages/:username', name : 'messages', component : page('convos/messages')},
 
   /* View Stuff */

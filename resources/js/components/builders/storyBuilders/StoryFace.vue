@@ -3,7 +3,7 @@
 	<div class="wrapper p-2">
 		
 		<center>
-			<Picture :user="user" :width="75" :height="75"></Picture>
+			<Picture :user="user" :width="70" :height="70"></Picture>
 			<user-name :user="user"></user-name>
 		</center>
 

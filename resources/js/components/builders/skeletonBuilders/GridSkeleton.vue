@@ -22,17 +22,12 @@
   export default {
 
   	name 		 : "GridSkeleton",
-  	data 		 : function(){
+  	data 		 : () => ({
+  		list  : globs.limit,
+			three : 'three-cols',
+			two   : 'two-cols',
 
-  		return {
-
-  			list  : globs.limit,
-  			three : 'three-cols',
-  			two   : 'two-cols',
-
-  		}
-
-  	},
+  	}),
   	props : ['cols'],
   	computed : {
 

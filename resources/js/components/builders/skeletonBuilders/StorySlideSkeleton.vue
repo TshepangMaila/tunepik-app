@@ -24,7 +24,7 @@ import Flickity from 'vue-flickity'
 
 	export default {
 
-		name : 'StorySkeleton',
+		name : 'StorySlideSkeleton',
 		data : () => ({
 
       wrapper  : '.main-carousel',
@@ -51,8 +51,8 @@ import Flickity from 'vue-flickity'
 
 <style type="text/css" scoped>
 	.skeleton-image{
-		width: 80px;
-		height: 80px;
+		width: 70px;
+		height: 70px;
 		border-radius: 50%;
 	}
 </style>

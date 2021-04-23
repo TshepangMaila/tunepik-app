@@ -2,18 +2,39 @@
 
 	<div class="wrapper">
 			
-			<story-skeleton v-if="stories.loading"></story-skeleton>
+			<story-slide-skeleton v-if="stories.loading"></story-slide-skeleton>
 			<div class="story-body" v-else>
-				
-				<Flickity :options="options" ref="flickity">
+
+				<div class="media">
 					
-					<story-face :user="model"></story-face>
+					<slot />
+					<div class="media-body">
+						
+						<Flickity :options="options" ref="flickity">
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face>
+							<!-- Show Rest Of The Stories -->
+							<story-bundler :stories="stories.stories"></story-bundler>
 
-					<!-- Show Rest Of The Stories -->
-					<story-bundler :stories="stories.stories"></story-bundler>
+						</Flickity>
 
-				</Flickity>
+					</div>
 
+				</div>
+				
 			</div>
 
 	</div>
@@ -22,7 +43,7 @@
 
 <script type="text/javascript">
 
-	import StorySkeleton from '../skeletonBuilders/StorySkeleton'
+	import StorySlideSkeleton from '../skeletonBuilders/StorySlideSkeleton'
 	import StoryFace from './StoryFace'
 	import StoryBundler from './StoryBundler'
 	import Flickity from 'vue-flickity'
@@ -46,14 +67,13 @@
 		}),
 		props : ['url'],
 		components : {
-			StorySkeleton,
+			StorySlideSkeleton,
 			StoryFace,
 			StoryBundler,
 			Flickity,
 		},
 		computed : {
 			...mapGetters("story", ['stories']),
-			...mapGetters("auth", ['model'])
 		},
 		methods : {
 			...mapActions('story', ['getStories'])
