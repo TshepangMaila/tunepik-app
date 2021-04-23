@@ -1,59 +1,24 @@
 <template>
 
 	<div class="wrapper">
-			
-			<story-skeleton v-if="stories.loading"></story-skeleton>
-			<div class="story-body" v-else>
-				
-				<Flickity :options="options" ref="flickity">
-					
-					<div class="wrap-story-items" v-for="(story, i) in stories.stories" :key="i">
+		
+		<div class="wrap-story-items" v-for="(story, i) in stories" :key="i">
 						
-						<story-item></story-item>
+			<story-face :user="story.user"></story-face>
 
-					</div>
-
-				</Flickity>
-
-			</div>
+		</div>
 
 	</div>
 	
 </template>
 
 <script type="text/javascript">
-
-	import StorySkeleton from '../skeletonBuilders/StorySkeleton'
-	import StoryItem from './StoryItem'
-	import Flickity from 'vue-flickity'
 	
 	export default {
-
-		name 	: "StoryBundler"
-		data  : () => ({
-			wrapper  : '.main-carousel',
-      options : {
-
-				freeScroll : false,
-  	  	contain : true,
-       	wrapAround : true,
-       	autoPlay : 4000,
-       	prevNextButtons : false,
-       	pageDots : false
-
-			}
-		}),
-		props : ['stories'],
-		components : {
-			StorySkeleton,
-			StoryItem,
-			Flickity,
-		}
-
+		name 		: "StoryBundler",
+		props 	: ['stories']
 	};
 
 </script>
 
-<style type="text/css" scoped>
-	
-</style>
+<style type="text/css" scoped></style>

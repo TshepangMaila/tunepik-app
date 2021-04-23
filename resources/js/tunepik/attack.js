@@ -838,7 +838,8 @@ class Timer{
     notification    : NotificationModel,
     tag             : HashTags,
     chat            : ChatsModel,
-    message         : MessagesModel
+    message         : MessagesModel,
+    story           : StoryModel
 
   }
 

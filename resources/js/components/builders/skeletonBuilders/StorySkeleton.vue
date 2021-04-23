@@ -4,9 +4,9 @@
 		
 		<Flickity ref="flickity" :options="options">
 			
-			<div class="" v-for="(_, i) in [1, 2, 3, 4, 5, 6, 7, 8]" :key="i">
+			<div class="" v-for="(_, i) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]" :key="i">
 				
-				<div class="story-skeleton-wrap">
+				<div class="story-skeleton-wrap p-2">
 					<div class="img-shade skeleton-shimmer skeleton-image"></div>
 				</div>
 
@@ -50,5 +50,9 @@ import Flickity from 'vue-flickity'
 </script>
 
 <style type="text/css" scoped>
-	
+	.skeleton-image{
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+	}
 </style>

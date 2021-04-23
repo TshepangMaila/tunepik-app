@@ -1,4 +1,5 @@
 import globs from '../../tunepik/attack.js'
+import axios from 'axios'
 
 
 
@@ -8,7 +9,7 @@ function findStoryEntry(stateStories, story){
 	// To Make The Search, Will Implement Two-way Search Algorithm
 	for(let i = 0; i < stateStories.length; i++){
 
-		if(stateStories[i].userId === story.getBasic().id) return { index : i, found : true }
+		if(stateStories[i].user.getBasic().id === story.getBasic().id) return { index : i, found : true }
 
 	}
 
@@ -43,7 +44,7 @@ export const mutations = {
 
 			data.stories.forEach(story => {
 
-				let modelStory = new globs.models.story(story)
+				let modelStory = new globs.model.story(story)
 				let stateStories = state.stories.stories
 
 				let find = findStoryEntry(stateStories, modelStory)
@@ -57,7 +58,7 @@ export const mutations = {
 						// Creates A New Entry In State Stories
 					  let stateStory = {
 
-							userId : modelStory.getBasic().id,
+							user : new globs.model.user(story.user),
 							userStories : [].push(modelStory)
 
 						}
@@ -81,7 +82,7 @@ export const actions = {
 
 		if(!form.lastId) commit('setLoading', true)
 
-		axios.get(form.lastId ? `${form.url}/?last_id=${}` : form.url)
+		axios.get(form.lastId ? `${form.url}/?last_id=${form.lastId}` : form.url)
 				 .then(({ data }) => {
 
 				 	commit('setStories', { message : data.message, error : data.error, stories : data.stories || [] })

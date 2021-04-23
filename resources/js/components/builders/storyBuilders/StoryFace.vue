@@ -1,6 +1,13 @@
 <template>
 
-	<div class="wrapper"></div>
+	<div class="wrapper p-2">
+		
+		<center>
+			<Picture :user="user" :width="75" :height="75"></Picture>
+			<user-name :user="user"></user-name>
+		</center>
+
+	</div>
 	
 </template>
 
@@ -9,7 +16,7 @@
 	export default {
 
 		name 	: "StoryFace",
-		props : ['url'],
+		props : ['user'],
 
 	};
 

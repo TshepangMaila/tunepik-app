@@ -138,11 +138,11 @@ Route::group([
 
 });
 
-Route::group([ 'prexix' => 'stories'], function (){
+Route::group([ 'prefix' => 'stories'], function (){
 
-    Route::get('all/', 'StoriesModelController@stories');
+    Route::get('all', 'StoriesModelController@stories');
 
-    Route::get('{Id}/', 'StoriesModelController@userStories');
+    Route::get('{Id}', 'StoriesModelController@userStories');
 
 });
 
