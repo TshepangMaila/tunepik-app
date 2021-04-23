@@ -22,7 +22,7 @@
 
   			<StorySlideBundler :url="storyURL">
   				
-  				<div class="media-left align-self-center">
+  				<div class="media-left align-self-center p-2">
   					
   					<add-story></add-story>
 

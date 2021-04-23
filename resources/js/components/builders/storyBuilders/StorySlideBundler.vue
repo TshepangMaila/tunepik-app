@@ -74,6 +74,7 @@
 		},
 		computed : {
 			...mapGetters("story", ['stories']),
+			...mapGetters("auth", ['model'])
 		},
 		methods : {
 			...mapActions('story', ['getStories'])

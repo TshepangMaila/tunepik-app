@@ -1,6 +1,6 @@
 <template>
 
-	<PostExtend :comment="share"></PostExtend>
+	<PostExtend :comment="'share'"></PostExtend>
 	
 </template>
 

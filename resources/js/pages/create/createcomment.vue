@@ -1,6 +1,6 @@
 <template>
 
-	<post-extend :comment="comment"></post-extend>
+	<post-extend :comment="'comment'"></post-extend>
 	
 </template>
 

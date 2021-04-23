@@ -9,7 +9,7 @@
 				<div class="media-body">
 					
 					<span class="app-max-text">
-						{{ header }}
+						{{ crumbs.header }}
 					</span>
 
 				</div>
@@ -52,7 +52,7 @@
 
 					<div class="comment-box-wrapper mt-2 mb-2">
 						
-						<textarea class="comment-box" :placeholder="placeholder" v-model="text"></textarea>
+						<textarea class="comment-box" :placeholder="crumbs.placeholder" v-model="text"></textarea>
 
 					</div>
 				
