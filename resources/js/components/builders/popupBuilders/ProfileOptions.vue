@@ -2,8 +2,8 @@
 
 	<div class="list-group">
 
-		<router-link :to="{ name : 'report', params : { type : 'profile' } }" class="list-group-item list-group-item-action no-border">
-
+		<router-link :to="{ name : 'edit.report', params : { type : 'user' } }" class="list-group-item list-group-item-action no-border">
+			<a @click="SET_REPORT({ obj : user, type : 'user' })"
 				<div class="media">
 					
 					<div class="media-left align-self-center">
@@ -16,7 +16,7 @@
 					</div>
 
 				</div>
-
+			</a>
 		</router-link>
 
 		<div class="list-group-item no-border">
@@ -32,6 +32,7 @@
 <script type="text/javascript">
 
 	import BlockButton from '../userBuilders/BlockButton'
+	import { mapMutations } from 'vuex'
 	
 	export default {
 
@@ -41,6 +42,9 @@
 
 			BlockButton
 
+		},
+		methods : {
+			...mapMutations("report", ['SET_REPORT'])
 		}
 
 	};

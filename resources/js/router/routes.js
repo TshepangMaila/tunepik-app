@@ -42,7 +42,7 @@ export default [
   { path : '/stories/:username/:id', name : 'stories', component : page('stories/userstories.vue')},
   { path : '/create/post', name : 'createPost', component : page('create/createpost.vue')},
   { path : '/search/:term', name : 'results', component : page('bundle/results.vue') },
-  { path : '/report/:type', name : 'report', component : page('bundle/report.vue')},
+  /*{ path : '/report/:type', name : 'report', component : page('bundle/report.vue')},*/
 
   /* CAMERAA */
 
@@ -79,6 +79,7 @@ export default [
         { path : 'blocked', name : 'edit.blocked', component : page('profile/edit/blocked.vue') },
         { path : 'password', name : 'edit.password', component : page('profile/edit/password.vue') },
         { path : 'display', name : 'edit.display', component : page('profile/edit/display.vue') },
+        { path : 'report/:type', name : 'edit.report', component : page('bundle/report.vue') },
 
       ],
 

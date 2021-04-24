@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         'prefix' => 'reports'
     ], function(){
 
-       Route::post('submit/{id}', 'ReportsController@makeReport');
+       Route::post('submit/{type}/{id}', 'ReportsController@makeReport');
 
        Route::get('myreports', 'ReportsController@viewReports');
 

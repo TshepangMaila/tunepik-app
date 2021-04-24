@@ -17,10 +17,11 @@ export const getters = {
 
 export const mutations = {
 
-  SET_REPORT : (state, obj, type) => {
+  SET_REPORT : (state, args) => {
 
-    state.reporter.reportObj = obj
-    state.reporter.type = type
+  	console.log(args)
+    state.reporter.reportObj = args.obj
+    state.reporter.type = args.type
 
   }
 

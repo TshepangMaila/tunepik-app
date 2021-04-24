@@ -263,7 +263,7 @@
 				width: 100%;
 				height: 100%;
 				overflow-y: auto;
-				background-color: #fff;
+				/*background-color: #fff;*/
 
 			}
 

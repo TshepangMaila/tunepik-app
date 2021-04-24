@@ -2,9 +2,9 @@
 
 	<div class="list-group">
 		
-		<a class="list-group-item list-group-item-action b-under" @click="SET_REPORT(comment, 'comment')" v-if="!comment.getActivity().me">
+		<a class="list-group-item list-group-item-action b-under" @click="SET_REPORT({obj : comment, type :'comment'})" v-if="!comment.getActivity().me">
 
-      <router-link :to="{ name : 'report', params : { type : 'comment' } }">
+      <router-link :to="{ name : 'edit.report', params : { type : 'comment' } }">
 
 			<div class="media">
 

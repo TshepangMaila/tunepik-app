@@ -6,7 +6,7 @@
 
 			<Navigation if="screen && checks.done">
 				
-				<div class="media-body">
+				<div class="media-body align-self-center">
 					
 					<span class="app-max-text">
 						{{ crumbs.header }}

@@ -17,7 +17,7 @@ class ReportsController extends Controller
 
     }
 
-    public function makeReport(Request $request, $id){
+    public function makeReport(Request $request, $type, $id){
 
         if(!$request->hasAny(['type', 'report_text'])) return TunepikUtilController::error('Incomplete Request');
 
@@ -55,7 +55,7 @@ class ReportsController extends Controller
             return [
 
                 'error'     => false,
-                'message'     => 'Report Filed'
+                'message'     => 'Report Sent, Our Team Will Look Into It As Soon As Possible'
 
             ];
 

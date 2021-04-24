@@ -104,9 +104,9 @@
 
 	  </a>
 
-	  <a class="list-group-item list-group-item-action b-under" @click="SET_REPORT(post, 'post')" v-if="!post.getActivity().me">
+	  <a class="list-group-item list-group-item-action b-under" @click="SET_REPORT({obj : post, type :'post'})" v-if="!post.getActivity().me">
 
-      <router-link :to="{ name : 'report', params : { type : 'post' } }">
+      <router-link :to="{ name : 'edit.report', params : { type : 'post' } }">
 
 			<div class="media">
 
@@ -154,9 +154,7 @@
 		},
 		props 		 : ['post'],
 		methods 	 : {
-
 			...mapMutations('report', ['SET_REPORT'])
-
 		}
 
 

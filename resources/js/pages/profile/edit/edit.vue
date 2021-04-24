@@ -52,7 +52,7 @@
 
 								<template v-for="(item, index) in list">
 										
-										<router-link :to="{ name : item.url }" class="list-group-item list-group-item-action" v-if="item.index != 5">
+										<router-link :to="{ name : item.url, params : { type : item.type || '' } }" class="list-group-item list-group-item-action" v-if="item.index != 6">
 
 											<div class="media">
 
@@ -86,15 +86,18 @@
 
 										</router-link>
 
-									<div class="list-group-item" v-if="item.index == 5">
+									<div class="list-group-item" v-if="item.index == 6">
 										<center>
 											<v-button @click.native="show = !show" :type="'danger'" :large="true" :block="true">
 												Logout
 											</v-button>
 										</center>
 
+									</div>
 
-										<div class="overlay-wrap" v-show="show">
+									</template>
+
+									<div class="overlay-wrap" v-show="show">
 											
 											<div class="main-wrap card no-border" v-show="show" :class="[ show ? 'fade-in' : 'fade-out']">
 												
@@ -143,10 +146,6 @@
 											</div>
 
 										</div>
-
-									</div>
-
-									</template>
 
 							</div>
 
@@ -243,6 +242,13 @@
 			 				},
 			 				{
 			 					index  : 5,
+			 					name 	 : 'Report A Bug',
+			 					url 	 : 'edit.report',
+			 					icon 	: 'fa fa-paint-brush app-fa',
+			 					type  : 'bug'
+			 				},
+			 				{
+			 					index  : 6,
 			 					name 	 : 'Logout',
 			 					url 	 : ''
 			 				},
