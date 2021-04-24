@@ -59,10 +59,11 @@ export const mutations = {
 					  let stateStory = {
 
 							user : new globs.model.user(story.user),
-							userStories : [].push(modelStory)
+							userStories : []
 
 						}
 
+						stateStory.userStories.push(modelStory)
 						// Insert The New Entry
 						stateStories.push(stateStory)
 

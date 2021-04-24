@@ -13,10 +13,13 @@
 </template>
 
 <script type="text/javascript">
-	
+	import StoryFace from './StoryFace'
 	export default {
 		name 		: "StoryBundler",
-		props 	: ['stories']
+		props 	: ['stories'],
+		components : {
+			StoryFace
+		}
 	};
 
 </script>
