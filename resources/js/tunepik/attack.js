@@ -492,6 +492,10 @@ class StoryModel extends UserModel{
 
    }
 
+   getPost(){ return this.story }
+
+   getStats(){ return this.stats }
+
 }
 
 

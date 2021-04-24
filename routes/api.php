@@ -237,6 +237,8 @@ Route::group([
 
     Route::post('comment/{postId}', 'UploadController@comment');
 
+    Route::post('story', 'UploadController@stories');
+
     Route::post('profile', 'UploadController@profile');
 
     Route::post('cover', 'UploadController@cover');

@@ -68,11 +68,11 @@ class StoriesModelController extends Controller
 
     }
 
-    private function modelStory(Stories $story){
+    public function modelStory(Stories $story){
 
         return [
 
-            "user"      => (new UserModelController())->user($story->user_id),
+            "user"      => (new UserModelController())->buildUser($story->user_id),
             "story"     => [
 
                 "user_id"       => $story->user_id,

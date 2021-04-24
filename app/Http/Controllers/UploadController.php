@@ -6,6 +6,7 @@ use App\Comment;
 use App\Events\UserCounter;
 use App\Post;
 use App\User;
+use App\Stories;
 use App\Chats;
 use App\Messages;
 use App\Events\ChatsEvent;
@@ -25,7 +26,7 @@ class UploadController extends Controller
 
     protected $filePath = "";
 
-    protected $URL = 'http://192.168.43.13:8000/storage/';
+    protected $URL = '/storage/'; # http://192.168.43.13:8000
 
     protected $thumbnailVideoURL = '';
 
@@ -33,9 +34,15 @@ class UploadController extends Controller
 
     protected $UploadText = "";
 
+    protected $date = "";
+    protected $time = "";
+
     function __construct(){
 
         $this->LoggedId = auth()->check() ? auth()->user()->user_id : 0;
+
+        $this->date = date_format(date_create(date('m/d/Y')), 'D, d M Y');
+        $this->time = date("g:ia");
 
     }
 
@@ -78,8 +85,8 @@ class UploadController extends Controller
             'media_url'     => $this->getURL($this->filePath),
             'thumbnail_url' => $this->thumbnailVideoURL,
             'text'          => $this->UploadText,
-            'media_date'    => date_format(date_create(date('m/d/Y')), 'D, d M Y'),
-            'media_time'    => date('g:ia'),
+            'media_date'    => $this->date,
+            'media_time'    => $this->time,
             'type'          => $this->fileType,
             'app_name'      => $request->app_name,
             'shared_from_id'=> 0,
@@ -129,8 +136,8 @@ class UploadController extends Controller
             'media_url'     => $this->getURL($this->filePath),
             'thumbnail_url' => $this->thumbnailVideoURL,
             'text'          => $this->UploadText,
-            'media_date'    => date_format(date_create(date('m/d/Y')), 'D, d M Y'),
-            'media_time'    => date('g:ia'),
+            'media_date'    => $this->date,
+            'media_time'    => $this->time,
             'type'          => $this->fileType,
             'app_name'      => $request->app_name,
             'shared_from_id'=> $sharedPostId,
@@ -173,11 +180,31 @@ class UploadController extends Controller
             'comment_text'  => $this->UploadText,
             'comment_url'   => $this->getURL($this->filePath),
             'thumbnail_url' => $this->thumbnailVideoURL,
-            'comment_date'  => date_format(date_create(date('m/d/Y')), 'D, d M Y'),
-            'comment_time'  => date('g:ia'),
+            'comment_date'  => $this->date,
+            'comment_time'  => $this->time,
             'comment_type'  => $this->fileType,
             'app_name'      => $request->app_name,
             'comment_id'    => null
+        ]));
+
+    }
+
+    public function stories(Request $request){
+
+        $validated = $this->validateRequest($request);
+
+        if($validated['error']) return response()->json($validated);
+
+        if($validated['hasFile']) $this->workFile($request->media, 'story');
+
+        return response()->json($this->insertStory([
+            'user_id'       => $this->LoggedId,
+            'story_message' => $this->UploadText,
+            'story_url'     => $this->getURL($this->filePath),
+            'story_type'    => $this->fileType,
+            'story_time'    => $this->time,
+            'story_date'    => $this->date,
+            'story_id'      => null
         ]));
 
     }
@@ -407,6 +434,32 @@ class UploadController extends Controller
 
     }
 
+    public function insertStory(array $story){
+
+        $mStory = new Stories($story);
+
+        if($mStory->save()){
+
+            return [
+                'error'     => false,
+                'uploaded'  => true,
+                'message'   => 'Story Uploaded',
+                'story'     => (new StoriesModelController())->modelStory($mStory)
+            ];
+
+        }else{
+
+            return [
+                'error'     => true,
+                'uploaded'  => false,
+                'message'   => 'Story Upload Unsuccessful',
+                'story'     => []
+            ];
+
+        }
+
+    }
+
     public function message(Request $request, $id){
 
         if(empty($id)) return response()->json($this->error('Invalid Request'));
@@ -625,6 +678,7 @@ class UploadController extends Controller
                         case 'comment'  :
                         case 'share'    :
                         case 'message'  :
+                        case 'story'    :
 
                               $this->createThumb($file, $file->filename, 601);
                               $this->fullImage($file, $file->filename, 1200);
