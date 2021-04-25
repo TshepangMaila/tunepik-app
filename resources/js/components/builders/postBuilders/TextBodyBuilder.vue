@@ -1,8 +1,8 @@
-<template>
-    <span class="container text-container" style="text-align:left" v-if="post.getPost().text != ''">
-      <span class="app-post-text">{{ post.getPost().text }}</span>
+<!-- <template>
+    <span class="container text-container" style="text-align:left" v-if="text != ''">
+      <span class="app-post-text">{{ text }}</span>
     </span>
-</template>
+</template> -->
 
 <script>
 
@@ -11,16 +11,31 @@
     export default {
 
         name    : "TextBodyBuilder",
-        data    : () => {
+        data    : () => ({
+          screen : globs.app.isMobile,
+        }), 
+        props : ['text'],
+        render : function(createElement){
+          if(this.text != ''){
 
-          return {
+            return createElement('span', { 
+              attrs : { 
+                class : 'container text-container'
+              } 
+            }, [
 
-            screen : globs.app.isMobile,
+              createElement('span', this.text,{
+                attrs : {
+                  class : 'app-post-text'
+                }
+              })
 
+            ])
+
+          }else{
+            return createElement('span', '')
           }
-
-        }, 
-        props : ['post']
+        }
 
     };
 </script>

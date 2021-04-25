@@ -24,12 +24,16 @@ export const state = {
 		message : '',
 		error   : false,
 		stories : []
+	},
+	view 	: {
+		index : 0
 	}
 
 }
 
 export const getters = {
-	stories : state => state.stories
+	stories : state => state.stories,
+	view 		: state => state.view,
 }
 
 export const mutations = {
@@ -73,7 +77,8 @@ export const mutations = {
 
 		}
 
-	}
+	},
+	SET_VIEW_INDEX : (state, args) => state.view.index = args.index
 
 }
 

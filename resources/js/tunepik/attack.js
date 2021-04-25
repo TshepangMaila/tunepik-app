@@ -481,6 +481,8 @@ class StoryModel extends UserModel{
        time   : args.story.story_time,
        date   : args.story.story_date,
        type   : args.story.story_type,
+       now    : args.story.now
+
 
      }
 

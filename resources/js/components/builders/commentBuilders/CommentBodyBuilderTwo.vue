@@ -80,7 +80,7 @@
 							</template>
 							<template v-else>
 								
-								<TextBodyBuilder :post="comment" class="pl-1"></TextBodyBuilder>
+								<TextBodyBuilder :text="comment.getPost().text" class="pl-1"></TextBodyBuilder>
 
 							</template>
 

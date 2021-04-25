@@ -198,21 +198,18 @@
 							this.header = `Share @${this.trim(this.post.getBasic().handle, 8)}`
 							this.placeholder = `Reply @${this.post.getBasic().handle}`
 							this.url = `/api/upload/comment/${this.post.getPost().id}`
-							this.text = `@${this.post.getBasic().handle} `
 						break;
 
 					case 'share' :
 							this.header = `Reply @${this.trim(this.post.getBasic().handle, 8)}`
 							this.placeholder = `Share @${this.post.getBasic().handle}`
 							this.url = `/api/upload/share/${this.post.getPost().id}`
-							this.text = ''
 						break;
 
 					case 'story' :
 							this.header = 'Add Your Story' 
 							this.placeholder = 'caption...'
 							this.url = '/api/upload/story/'
-							this.text = ''
 						break;
 					default:
 						// statements_def
@@ -227,8 +224,11 @@
 				}
 			},
 			form : function() {
+
+				this.text = this.comment == 'comment' ? `@${this.post.getBasic().handle} ` : ''
+
 				return {
-					text : this.crumbs.text,
+					text : this.text,
 					media : this.uploadedFile,
 					url : this.crumbs.url
 				}
@@ -265,12 +265,11 @@
 
 				this.SNACK_BAR({ isOpen : true, message : newData.message, theme : newData.error ? 'danger' : 'info' })
 
-				if(!newData.error) this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
-
-
 				if(this.comment == 'comment'){
 
 					this.post.getStats().isCommented = newData.uploaded ? true : false
+
+					if(!newData.error) this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
 
 				}else if(this.comment == 'share'){
 
@@ -283,11 +282,15 @@
 		},
 		beforeMount : function(){
 
-			if(this.post == null){
+			if(this.comment == 'post' || this.comment == 'comment' || this.comment == 'share'){
 
-				console.log(this.$router)
+				if(this.post == null){
 
-				 this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
+						console.log(this.$router)
+
+						 this.$router.push({ name : 'comment', params : { username : this.currentRoute.username, type : this.currentRoute.type, id : this.currentRoute.id } })
+
+					}
 
 			}
 

@@ -28,7 +28,7 @@
 				</template>
 				<template v-else>
 					
-					<TextBodyBuilder style="display:inline-block" :post="comment"></TextBodyBuilder>
+					<TextBodyBuilder style="display:inline-block" :text="comment.getPost().text"></TextBodyBuilder>
 
 				</template>
 

@@ -11,21 +11,13 @@
 					<div class="media-body">
 						
 						<Flickity :options="options" ref="flickity">
+							<!-- <story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face>
+							<story-face :user="model"></story-face> -->
 							<!-- Show Rest Of The Stories -->
 							<story-bundler :stories="stories.stories"></story-bundler>
 

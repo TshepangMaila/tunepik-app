@@ -17,7 +17,7 @@
               
               <DeletedBodyBuilder :post="post" v-if="post.getPost().type == 'deleted'"></DeletedBodyBuilder>
               
-              <TextBodyBuilder class="" :post="post" v-else></TextBodyBuilder>
+              <TextBodyBuilder class="" :text="post.getPost().text" v-else></TextBodyBuilder>
 
             <template v-if="!post.getStats().isOriginal">
 

@@ -21,7 +21,7 @@
 		      </a>
 		      <a class="dropdown-item" href="#">
 
-		      	<router-link :to="{ name : 'stories' }">
+		      	<router-link :to="{ name : 'stories', params : { username : model.getBasic().handle, id : model.getBasic().id } }">
 		      		<span class="app-post-text">
 		      			View Your Story
 		      		</span>

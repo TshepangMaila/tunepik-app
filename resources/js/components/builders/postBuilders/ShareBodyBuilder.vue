@@ -17,7 +17,7 @@
         </template>
         <template v-else>
           <div class="share-tex pl-2">
-            <TextBodyBuilder :post="post"></TextBodyBuilder>
+            <TextBodyBuilder :text="post.getPost().text"></TextBodyBuilder>
           </div>
         </template>
 

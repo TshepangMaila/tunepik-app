@@ -114,7 +114,7 @@
             </template>
             <template v-else>
 
-              <TextBodyBuilder :post="atComments.post"></TextBodyBuilder>
+              <TextBodyBuilder :text="atComments.post.getPost().text"></TextBodyBuilder>
 
             </template>
 
