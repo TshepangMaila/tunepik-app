@@ -244,7 +244,7 @@
 			 					index  : 5,
 			 					name 	 : 'Report A Bug',
 			 					url 	 : 'edit.report',
-			 					icon 	: 'fa fa-paint-brush app-fa',
+			 					icon 	: 'fa fa-bug app-fa',
 			 					type  : 'bug'
 			 				},
 			 				{

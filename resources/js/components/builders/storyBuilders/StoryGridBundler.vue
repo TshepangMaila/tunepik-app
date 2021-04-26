@@ -25,7 +25,15 @@
 				<story-face :user="model"></story-face>
 				<story-face :user="model"></story-face>
 				<story-face :user="model"></story-face>
-	   		<story-bundler :stories="stories.stories"></story-bundler>
+	   		<div class="wrap-story-items" v-for="(story, i) in stories" :key="i">
+						
+					<router-link :to="{ name : 'stories', params : { username : story.user.getBasic().handle, id : story.user.getBasic().id } }">
+						<a @click="SET_VIEW_INDEX({index : i})">
+							<story-face :user="story.user"></story-face>
+						</a>
+					</router-link>
+
+				</div>
 
 	   </masonry>
 
@@ -37,9 +45,8 @@
 
 <script type="text/javascript">
 
-	import { mapGetters, mapActions } from 'vuex'
+	import { mapGetters, mapActions, mapMutations } from 'vuex'
 	import StoryGridSkeleton from '../skeletonBuilders/StoryGridSkeleton'
-	import StoryBundler from './StoryBundler'
 	
 	export default {
 
@@ -47,10 +54,10 @@
 		props 	: ['url'],
 		components : {
 			StoryGridSkeleton,
-			StoryBundler
 		},
 		methods : {
-			...mapActions("story", ['getStories'])
+			...mapActions("story", ['getStories']),
+			...mapMutations("story", ['SET_VIEW_INDEX'])
 		},
 		computed : {
 			...mapGetters("story", ['stories'])

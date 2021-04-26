@@ -17,9 +17,18 @@
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
 							<story-face :user="model"></story-face>
-							<story-face :user="model"></story-face> -->
-							<!-- Show Rest Of The Stories -->
-							<story-bundler :stories="stories.stories"></story-bundler>
+							<story-face :user="model"></story-face>
+							<story-bundler :stories="stories.stories"></story-bundler> -->
+
+							<div class="wrap-story-items" v-for="(story, i) in stories.stories" :key="i">
+						
+								<router-link :to="{ name : 'stories', params : { username : story.user.getBasic().handle, id : story.user.getBasic().id } }">
+									<a @click="SET_VIEW_INDEX({index : i})">
+										<story-face :user="story.user"></story-face>
+									</a>
+								</router-link>
+
+							</div>
 
 						</Flickity>
 
@@ -37,9 +46,8 @@
 
 	import StorySlideSkeleton from '../skeletonBuilders/StorySlideSkeleton'
 	import StoryFace from './StoryFace'
-	import StoryBundler from './StoryBundler'
 	import Flickity from 'vue-flickity'
-	import { mapGetters, mapActions } from 'vuex'
+	import { mapGetters, mapActions, mapMutations } from 'vuex'
 	
 	export default {
 
@@ -61,7 +69,6 @@
 		components : {
 			StorySlideSkeleton,
 			StoryFace,
-			StoryBundler,
 			Flickity,
 		},
 		computed : {
@@ -69,7 +76,8 @@
 			...mapGetters("auth", ['model'])
 		},
 		methods : {
-			...mapActions('story', ['getStories'])
+			...mapActions('story', ['getStories']),
+			...mapMutations('story', ['SET_VIEW_INDEX'])
 		},
 		mounted : function(){
 			this.$nextTick(() => {
