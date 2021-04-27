@@ -3,39 +3,25 @@
   <div class="media pl-1 pr-1 mt-2 mb-2">
 
     <!-- User Image -->
-    <Picture class="pl-1" :height="40" :width="40" :user="post" ></Picture>
-          
-   <!--  <img  height="35" width="35" :src="'' + post.getImgs().profile" /> -->
+    <Picture class="pl-1" :height="pictureSize" :width="pictureSize" :user="post" ></Picture>
 
     <div class="media-body ml-3 align-self-center">
       
       <router-link v-bind:to="{ name : 'profile', params :{ username : post.getBasic().handle } }">
-
         <a @click="SET_PROFILE(post)">
-         <!-- <span class="app-bolder-text">{{ post.getBasic().name }}</span>
-         <span class="profile-user-handle app-post-text" style="display: block;line-height: 1;">
-            @{{ post.getBasic().handle }}
-          </span> -->
           <user-name :user="post"></user-name>
         </a>
-
       </router-link>
-
-      <!-- <span class="app-grey-text-lg">&middot; {{ post.getPost().now }}</span> -->
 
     </div>
 
     <!-- User Options Button -->
-
     <div class="post-header-icon-wrapper "> <!-- pr-2 align-self-center b-media -->
       
       <div class="options-round">
         
         <a class="post-header-icon" @click="show = !show">
-        
-          <!-- <svg-vue icon="arrowdown" class="app-icon" style="width:20px;height:20px;" ></svg-vue> -->
           <Icon :icon="'arrowdown'" :height="20" :width="20"></Icon>
-
         </a>
 
       </div>
@@ -102,17 +88,13 @@
           PostOptions
 
         },
-        data        : () => {
+        data        : () => ({
 
-          return {
+          screen : globs.app.isMobile,
+          header : '',
+          show   : false
 
-            screen : globs.app.isMobile,
-            header : '',
-            show   : false
-
-          }
-
-        }, 
+        }), 
         props   : ['post'],
         methods  : {
 
@@ -127,6 +109,9 @@
               return this.header;
 
           },
+          pictureSize : function(){
+            return screen ? 40 : 55
+          }
 
         }
 

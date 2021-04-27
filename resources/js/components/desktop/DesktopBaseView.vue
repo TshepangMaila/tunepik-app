@@ -1,14 +1,27 @@
 <template>
        
-      <div class="app-desktop-base-view">
+      <div class="app-desktop-base-view wrapper">
         
         <div class="row">
 
-        <div class="col-lg-2 icon-nav-wrapper app-col" style="">
+        <div class="col-lg-2 icon-nav-wrapper app-col wrapper">
           
-          <div class="left-fixed-wrapper">
+          <div class="left-fixed-wrapper wrapper">
             
-            <name></name>
+
+            <div class="name-wrap pt-3 pl-5 pr-5" style="width:60%;">
+              <name></name>
+            </div>
+
+            <div class="space-large"></div>
+
+            <desktop-nav class="pl-4 pr-5"></desktop-nav>
+
+            <div class="space-large"></div>
+
+            <story-header class="pl-2">
+              <story-grid-bundler :url="storyURL"></story-grid-bundler>
+            </story-header>
 
           </div>
 
@@ -30,11 +43,21 @@
 <script>
   import {mapGetters} from 'vuex';
   import DesktopNav from './DesktopNav'
+  import StoryHeader from '../builders/storyBuilders/StoryHeader'
+  import StoryGridBundler from '../builders/storyBuilders/StoryGridBundler'
 
     export default {
        name: "DesktopBaseView",
+       data   : () => ({
+        storyURL : '/api/stories/all'
+       }),
        components : {
-        DesktopNav
+        DesktopNav,
+        StoryHeader,
+        StoryGridBundler
+       },
+       computed : {
+
        }
     };
 </script>
@@ -59,8 +82,7 @@
   right: 0;
   width: 25%;
   height: 100%;
-  border-right: .05em solid red;
-  background-color: #fff;
+  border-right: .05em solid rgba(211, 211, 211, .175);
   z-index: 99999 !important;
 }
 

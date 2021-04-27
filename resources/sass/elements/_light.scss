@@ -24,9 +24,7 @@
     }
 
     .wrapper{
-
       background-color : #fff;
-
     }
 
     .navbar,
@@ -36,4 +34,18 @@
 
   }
 
+  }
+
+  @media only screen and (min-width: 700px){
+    .main-layout.theme-light{
+
+      .overlay-wrap{
+        background-color: rgba(0, 0, 0, .175);
+      }
+      
+      .wrapper,
+      .root{
+        background-color : #fff;
+      }
+    }
   }

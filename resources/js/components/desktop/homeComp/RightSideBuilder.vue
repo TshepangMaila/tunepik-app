@@ -1,6 +1,6 @@
 <template>
        
-  <div class="app-right-side-view">
+  <div class="app-right-side-view pt-4">
 
     <AddPost ></AddPost>
 
@@ -35,8 +35,10 @@
 
       position: fixed;
       right: 3%;
-      border : .05em solid red;
+      top: 66px;
+      bottom : 0;
       width : 28%;
+      border-left: .04em solid rgba(211, 211, 211, .175);
 
     }
 

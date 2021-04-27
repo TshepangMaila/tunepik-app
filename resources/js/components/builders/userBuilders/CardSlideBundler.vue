@@ -12,9 +12,9 @@
 				<Flickity ref="flickity" :options="options">
 				
 				<!-- For Loop! -->
-				<div class="carousel-cell ml-2 mr-2 mb-2" v-for="(user, index) in users">
+				<div class="carousel-cell pt-4" v-for="(user, index) in users">
 				
-						<UserCardBuilder :user="user" ></UserCardBuilder>
+						<UserCardBuilder :user="user"></UserCardBuilder>
 
 				</div>
 
@@ -114,5 +114,12 @@
 </script>
 
 <style scoped>
+
+	.carousel-cell{
+		width: 55%;
+		height: 250px;
+		margin: 2%;
+		border : .04em solid rgba(211, 211, 211, .175);
+	}
 
 </style>

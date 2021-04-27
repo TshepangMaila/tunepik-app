@@ -2,9 +2,11 @@
 
 	<div class="name-wrapper" :style="bdColor">
 		
-		<div class="name" :style="{ backgroundColor : bgColor}">
-			<span class="app-max-text">tunepik</span>
-		</div>
+		<center>
+			<div class="name" :style="{ backgroundColor : bgColor}">
+				<span class="app-max-text">tunepik</span>
+			</div>
+		</center>
 
 	</div>
 	
@@ -43,21 +45,44 @@
 
 <style type="text/css" scoped>
 	
-	.name-wrapper {
-  /*max-width: 250px;*/
- /* padding: 1rem;*/
-  position: relative;
-  top : -3px;
-  /*background: linear-gradient(to right, #5bc0de, purple);*/
-  padding: 3px;
-  border-radius: 6px;
-}
+	@media only screen and (max-width: 700px){
+		.name-wrapper {
+	  /*max-width: 250px;*/
+	 /* padding: 1rem;*/
+	  position: relative;
+	  top : -3px;
+	  /*background: linear-gradient(to right, #5bc0de, purple);*/
+	  padding: 3px;
+	  border-radius: 6px;
+		}
+	
+		.name {
+		  /*background: #222;
+		  color: white;*/
+		  padding: 4px;/*2rem;*/
+		  border-radius: 1.5px;
+		}
+	}
 
-.name {
-  /*background: #222;
-  color: white;*/
-  padding: 4px;/*2rem;*/
-  border-radius: 1.5px;
-}
+ @media only screen and (min-width: 700px){
+
+ 		.name-wrapper {
+	  /*max-width: 250px;*/
+	 /* padding: 1rem;*/
+	  position: relative;
+	  top : -3px;
+	  /*background: linear-gradient(to right, #5bc0de, purple);*/
+	  padding: 3px;
+	  border-radius: 6px;
+		}
+
+		.name {
+		  /*background: #222;
+		  color: white;*/
+		  padding: 4px;/*2rem;*/
+		  border-radius: 1.5px;
+		}
+
+  }
 
 </style>

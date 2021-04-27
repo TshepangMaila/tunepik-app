@@ -51,7 +51,7 @@
 
         </div>
 
-      <div class="space-large visible-lg"></div>
+      <!-- <div class="space-large visible-lg"></div> -->
       <div class="space-medium visible-sm"></div>
 
     </div>
@@ -139,9 +139,7 @@
   @media only screen and (min-width : 700px){
 
     .app-media-body-main{
-      border: .05em solid lightgrey;
-      -webkit-box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
-       box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
+      border: .04em solid rgba(211, 211, 211, .275);
     }
 
     .app-media-body{

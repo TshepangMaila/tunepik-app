@@ -1,6 +1,6 @@
 <template>
        
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+      <nav class="navbar fixed-top navbar-expand-lg wrapper desktop-nav">
         
         <div class="container-fluid">
         <div class="row" style="width:100%;position:relative;top:10px;">
@@ -34,13 +34,14 @@
                     <tr>
                       <td class="app-search-tab app-search-icon-tab" style="padding-top: 1%;">
                           <center>
-                              <span class="app-search-lg">
+                              <!-- <span class="app-search-lg">
                                 <svg-vue icon="search" class="app-icon" ></svg-vue>
-                              </span>
+                              </span> -->
+                              <Icon :icon="'search'" :width="20" :height="20"></Icon>
                           </center>
                       </td>
                       <td class="app-search-tab-input" >
-                          <input type="search" class="app-input-field app-search-input" name="search" placeholder="Search TunePik" v-on:keyup="query = $event.target.value" />
+                          <input type="search" class="app-input-field app-search-input root" name="search" placeholder="Search TunePik" v-on:keyup="query = $event.target.value" />
                       </td>
                     </tr>
                   </table>
@@ -126,14 +127,11 @@ export default {
 <style scoped>
 
   .loading-wrapper{
-
     width: 100px;
     height: 40px;
-
   }
 
   .app-dropdown-menu{
-
     z-index: 9999 !important;
     position: fixed;
     top : 50px;

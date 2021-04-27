@@ -19,20 +19,18 @@
   		<div class="col-lg-7">
 
   			<div class="space-medium visible-lg"></div>
+    			<story-header v-if="screen">
+            <story-slide-bundler :url="storyURL">
+            
+              <div class="media-left align-self-center p-2">
+                <add-story></add-story>
+              </div>
 
-  			<StorySlideBundler :url="storyURL">
-  				
-  				<div class="media-left align-self-center p-2">
-  					
-  					<add-story></add-story>
-
-  				</div>
-
-  			</StorySlideBundler>
-  			
-  			<FeedPosts ></FeedPosts>
-
-  		</div>
+            </story-slide-bundler>   
+          </story-header>
+    			
+    			<feed-posts></feed-posts>
+    		</div>
 
   		<!-- Show Only In Desktops -->
   		<template v-if="!screen">
@@ -42,7 +40,7 @@
   				<div class="space-medium"></div>
 
   				<!-- Show The Right Side Views -->
-  				<RightSideBuilder ></RightSideBuilder>
+  				<right-side-builder ></right-side-builder>
   			
   		  </div>
 
@@ -60,6 +58,7 @@
  import RightSideBuilder from '../components/desktop/homeComp/RightSideBuilder'
  import HeadNavbar from '../components/mobile/HeadNavbar'
  import StorySlideBundler from '../components/builders/storyBuilders/StorySlideBundler'
+ import StoryHeader from '../components/builders/storyBuilders/StoryHeader'
  import AddStory from '../components/builders/storyBuilders/AddStory'
  import { mapGetters, mapActions, mapMutations } from 'vuex'
 
@@ -70,7 +69,8 @@
 		RightSideBuilder,
 		HeadNavbar,
 		StorySlideBundler,
-		AddStory
+		AddStory,
+    StoryHeader
 	},
 	data 				: () => ({
 		screen : globs.app.isMobile,

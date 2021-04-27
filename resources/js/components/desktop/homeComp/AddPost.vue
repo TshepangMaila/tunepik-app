@@ -1,9 +1,9 @@
 <template>
        
-  <div class="card">
+  <div class="card no-border">
     
     <!-- Header Of The Card -->
-    <div class="card-header">
+    <div class="card-header no-border">
       
       <span class="app-max-text">
         Compose
@@ -12,13 +12,13 @@
     </div>
 
     <!-- Show Contents Of The Card -->
-    <div class="card-body">
+    <div class="card-body no-border">
 
       <div class="container-fluid">
 
         <div class="media"> <!-- Main Media -->
 
-            <img height="35" width="35" class="compose-img rounded-circle img-fluid" />
+          <Picture :user="model" :width="45" :height="45"></Picture>
 
           <div class="media-body ml-2"> <!-- Media Body -->
 
@@ -32,35 +32,24 @@
 
           <div class="app-compose-buttons media">
 
-            <!-- Add Post Button -->
+            <div class="media-left align-self-center">
+              
+               <!-- Choose File Button -->
+               <label for="media" class="visual-media">
+                 <a class="btn btn-sm">
+                   <Icon :icon="'gallery'" :width="18" :height="18"></Icon>
+                 </a>
+               </label>
 
-             <!-- Choose File Button -->
-             <label for="media" class="visual-media">
+               <!-- Record Button -->
+               <button class="btn btn-sm  rec-btn-lg">
+                 <svg-vue icon="micfill" class="app-icon add-post-icons"></svg-vue>
+               </button>
 
-               <a class="btn btn-sm">
-                 
-                 <svg-vue icon="wallpaper" class="app-icon add-post-icons"></svg-vue>
+            </div>
 
-               </a>
-
-             </label>
-
-             <!-- Record Button -->
-             <button class="btn btn-sm  rec-btn-lg ml-1">
-
-               <svg-vue icon="micfill" class="app-icon add-post-icons"></svg-vue>
-
-             </button>
-
-             <div class="media-body ml-1">
-                <!-- Upload Button -->
-
-                 <button class="btn btn-sm btn-info compose-btn" style="width:100%;">
-
-                   Share
-
-                 </button>
-
+             <div class="media-body ml-1 align-self-center">
+                <v-button :type="'primary'" :large="false" :block="true" class="btn-sm">Share</v-button>
              </div>
 
           </div> <!-- End Of Add Post Buttons -->
@@ -79,8 +68,10 @@
 
     export default {
         name: "AddPost",
-        
-    }
+        computed :{
+          ...mapGetters("auth", ['model']),
+        }
+    };
 </script>
 
 <style scoped>
@@ -90,7 +81,6 @@
     height : 18px;
   }
   .card{
-    border : .05em solid lightgrey;
   }
 
 </style>

@@ -1,41 +1,45 @@
 <template>
        
-  <div class="card app-suggestions">
+  <div class="card app-suggestions no-border">
     
     <div class="card-header">
       
-      <span class="app-max-text">
-        Suggestions
-      </span>
+      <div class="media">
+        
+        <div class="media-body align-self-center">
+           <span class="app-max-text">
+              Suggestions
+           </span>
+        </div>
+        <div class="media-right align-self-center">
+          <Icon :icon="'grid'" :width="24" :height="24"></Icon>
+        </div>
+
+      </div>
 
     </div>
 
-
     <div class="card-body">
 
-      <div class="" v-if="loading">
-        
-         <SlideSkeleton></SlideSkeleton>
-
+      <div v-if="loading">
+         <slide-skeleton></slide-skeleton>
       </div>
       <div class="" v-else>
           
           <template v-if="error">
             
             <div class="app-deleted-post grey-matter">
-              
               <center>
                 <span>
                   {{ message }}
                 </span>
               </center>
-
             </div>
 
           </template>
           <template v-else>
 
-            <CardSlideBundler :users="Users" ></CardSlideBundler>
+            <card-slide-bundler :users="Users" ></card-slide-bundler>
 
           </template>
 
