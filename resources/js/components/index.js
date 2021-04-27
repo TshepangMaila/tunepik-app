@@ -10,7 +10,6 @@ import CardSlideBundler from './builders/userBuilders/CardSlideBundler'
 // Desktop Components
 import FeedPosts from './FeedPosts'
 import DesktopBaseView from './desktop/DesktopBaseView'
-import IconNav from './desktop/IconNav'
 import DesktopNavBar from './desktop/DesktopNavBar'
 
 // Mobile Components
@@ -39,7 +38,6 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   AlertSuccess,
   FeedPosts,
   DesktopBaseView,
-  IconNav,
   DesktopNavBar,
   MobileBaseView,
   MobileNavBar,

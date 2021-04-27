@@ -26,7 +26,7 @@
 
         }
         
-    }
+    };
 </script>
 
 <style scoped>
@@ -34,6 +34,8 @@
     .app-right-side-view{
 
       position: fixed;
+      right: 3%;
+      border : .05em solid red;
       width : 28%;
 
     }
