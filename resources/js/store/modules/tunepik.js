@@ -150,7 +150,12 @@ export const actions = {
 		document.querySelector("#app-theme-color").setAttribute("content", color)
 
 	},
-
+	getIconColor : function({ state }){
+		return state.theme.icons.type === 'default' ? state.theme.colors.blue : state.theme.icons.color
+	},
+	getTextColor : function({ state }){
+		return state.theme.type === 'theme-dark' || state.theme.type === 'theme-dim' ? (state.theme.icons.type === 'default' ? state.theme.colors.light : state.theme.colors.lightgrey) : state.theme.colors.darkgrey
+	},
 	toggleTheme : function({ commit, state, dispatch }, type){
 
 			if(state.theme.type == type) return

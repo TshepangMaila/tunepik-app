@@ -6,23 +6,19 @@
 			
 			<router-link v-for="(item, i) in menuItems" :key="i" :to="{ name : item.link}" class="list-group-item list-group-item-action no-border">
 				
-				<a @click="">
-					
+				<a @click="colorCurrent(item.name)">
 					<div class="media">
 						
 						<div class="media-left align-self-center">
-							
-							<Icon :icon="item.icon" :width="iconSize" :height="iconSize"></Icon>
-
+							<Icon :icon="item.icon" :width="iconSize" :height="iconSize" :color="itemColors[item.name]"></Icon>
 						</div>
 						<div class="align-self-center media-body pl-2">
-							<span class="app-max-text">
+							<span class="app-max-text" :style="{color : itemColors[item.name]}">
 								{{ item.name }}
 							</span>
 						</div>
 
 					</div>
-
 				</a>
 
 			</router-link>
@@ -34,13 +30,21 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
+  import {mapGetters, mapActions} from 'vuex';
 
     export default {
         name: "DesktopNav",
         data : () => ({
         	iconSize : 28,
+            itemColors : {
+                Home : '',
+                Messages : '',
+                Notifications : ''
+            }
         }),
+        methods : {
+            ...mapActions("tunepik", ['getIconColor', 'getTextColor'])
+        },
         computed : {
 
         	...mapGetters("tunepik", ['theme']),
@@ -63,6 +67,15 @@
         			}
         		]
         	},
+            colorCurrent(current){
+            
+                this.menuItems.forEach(item => {
+
+                    this.itemColors[item] = current === item.name ? this.getIconColor() : this.getTextColor()
+
+                })
+
+            }
 
         }
         

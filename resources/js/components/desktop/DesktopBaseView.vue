@@ -23,6 +23,8 @@
               <story-grid-bundler :url="storyURL"></story-grid-bundler>
             </story-header>
 
+            <snack-bar v-if="screen"></snack-bar>
+
           </div>
 
         </div> <!-- End of Col-lg-2 -->
@@ -45,11 +47,13 @@
   import DesktopNav from './DesktopNav'
   import StoryHeader from '../builders/storyBuilders/StoryHeader'
   import StoryGridBundler from '../builders/storyBuilders/StoryGridBundler'
+  import globs from '../../tunepik/attack.js'
 
     export default {
        name: "DesktopBaseView",
        data   : () => ({
-        storyURL : '/api/stories/all'
+        storyURL : '/api/stories/all',
+        screen : globs.app.isMobile
        }),
        components : {
         DesktopNav,

@@ -7,10 +7,7 @@
 			<div class="back-btn-wrapper self-align-center mr-3 b-media btn-top">
 				
 				<a @click="back()">
-					
-					<!-- <svg-vue icon="back" class="app-icon"></svg-vue> -->
 					<Icon :icon="'back'" :height="24" :width="24" :color="theme.icons.color"></Icon>
-
 				</a>
 
 			</div>
@@ -19,34 +16,35 @@
 
 		</div>
 
-		<Snackbar></Snackbar>
+		<snack-bar v-if="screen"></snack-bar>
 
 	</nav>
-	
-
 
 </template>
 
 <script>
 
 	import { mapGetters } from 'vuex'
-	
+	import globs from '../../../tunepik/attack.js'
+
 	export default {
 
 		name : "Navigation",
+		data : () => ({
+			screen : globs.app.isMobile
+		}),
 		methods : {
 
       back : function(){
-
         window.history.back();
-
       }
 
     },
     computed : {
-
     	...mapGetters('tunepik', ['theme']),
-
+    	navbar : function(){
+    		return screen ? 'navbar fixed-top' : 'nav-desktop card-header'
+    	}
     }
 
 	};
