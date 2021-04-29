@@ -24,6 +24,7 @@ import ProfileSnippet from './builders/snippets/ProfileSnippet'
 import Name from './Name'
 import UserName from './UserName'
 import Verified from './Verified'
+import Spinner from './Spinner'
 
 import { HasError, AlertError, AlertSuccess } from 'vform'
 
@@ -49,7 +50,8 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   Picture,
   Name,
   UserName,
-  Verified
+  Verified,
+  Spinner
 ].forEach(Component => {
   Vue.component(Component.name, Component)
 })

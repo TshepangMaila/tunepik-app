@@ -72,6 +72,7 @@
 					Delete
 
 				</div>
+				<spinner class="align-self-center" v-if="delete.loading"></spinner>
 
 			</div>
 
@@ -167,6 +168,8 @@
 
 						 	this.SNACK_BAR({ isOpen : true, message : data.message, theme : 'primary' })
 						 	this.post.getPost().type = data.deleted ? 'deleted' : this.post.getPost().type
+
+						 	this.delete.loading = false
 
 				}).catch(e => {
 					console.log(e)

@@ -622,8 +622,8 @@ class ReactModelController extends Controller
                     ->where('comment_id', $this->PostId)
                     ->where('user_id', $this->LoggedInId)
                     ->update([
-                        'comment_url'   => "",
-                        'comment_text'  => "This Comment Has Been Deleted By The Author",
+                        /*'comment_url'   => "",*/
+                        /*'comment_text'  => "This Comment Has Been Deleted By The Author",*/
                         'comment_type'  => 'deleted'
                     ]) == 1 ? [
                         'error'     => false,
