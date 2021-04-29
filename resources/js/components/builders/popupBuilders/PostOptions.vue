@@ -58,7 +58,7 @@
 
 		</a>
 
-		<a class="list-group-item list-group-item-action b-under" v-if="post.getActivity().me">
+		<a @click="deletePost()" class="list-group-item list-group-item-action b-under" v-if="post.getActivity().me">
 
 			<div class="media">
 
@@ -142,19 +142,37 @@
 
 	import FollowButton from '../userBuilders/FollowButton'
 	import {mapMutations} from 'vuex'
+	import axios from 'axios'
 
 	export default {
 
 		name 			 : "PostOptions",
+		data 			 : () => ({
+			delete : { 
+				loading : false 
+			}
+		}),
 		components : {
 			FollowButton
 		},
-		data 			 : function(){
-			return {};
-		},
 		props 		 : ['post'],
 		methods 	 : {
-			...mapMutations('report', ['SET_REPORT'])
+			...mapMutations('report', ['SET_REPORT']),
+			...mapMutations('tunepik', ['SNACK_BAR']),
+			deletePost : function(){
+
+				this.delete.loading = true
+				axios.get(`/api/react/delete/post/${this.post.getPost().id}/?type=post`)
+						 .then( ({data}) => {
+
+						 	this.SNACK_BAR({ isOpen : true, message : data.message, theme : 'primary' })
+						 	this.post.getPost().type = data.deleted ? 'deleted' : this.post.getPost().type
+
+				}).catch(e => {
+					console.log(e)
+				})
+
+			}
 		}
 
 

@@ -567,8 +567,8 @@ class ReactModelController extends Controller
                 ->where('user_id', $this->LoggedInId)
                 ->where('media_id', $this->PostId)
                 ->update([
-                    'media_url' => "",
-                    'text'      => 'This Post Has Been Deleted By The Author',
+                    /*'media_url' => "",*/
+                    /*'text'      => 'This Post Has Been Deleted By The Author',*/
                     'type'      => 'deleted'
                 ]) == 1 ?
                 [
