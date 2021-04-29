@@ -127,30 +127,49 @@ class ReactModelController extends Controller
 
     }
 
-    public function deletePost($postId){
+    public function deletePost(Request $request, $postId){
 
         /*
          * Check If postId is Set
          * */
         if(empty($postId) || $postId == 0) return $this->error('Incomplete Request');
 
+        if(!$request->has('type')) return $this->error('Incomplete Request');
         /*
          * Check If Post Id Is All Digits
          * */
         if(!preg_match("/[0-9]/", trim($postId))) return $this->error('Invalid Request');
-        /*
-         * Check If Post Exists
-         * */
-        if(!Post::all()->where('media_id')->count() == 1) return $this->error('This Post Does Not Exist!');
+
+         $this->setIds();
+
+        if($this->LoggedInId == 0) return $this->error('Unauthorized Request');
+        
+        switch ($request->type) {
+
+            case 'post':
+
+                /*
+                 * Check If Post Exists
+                 * */
+                if(!Post::all()->where('media_id')->count() === 1) return $this->error('This Post Does Not Exist!');
+
+                return response()->json($this->processDeletePost($postId));
+
+                break;
+            case 'comment':
+
+                if(!Comment::all()->where('post_id')->count() === 1) return $this->error('This Comment Does Not Exist');
+
+                return response()->json($this->processDeleteComment($postId));
+            
+            default:
+                # code...
+                break;
+        }
 
         /*
          * Delete Either A Post
          * */
-        $this->setIds();
-
-        if($this->LoggedInId == 0) return $this->error('Unauthorized Request');
-
-            return response()->json($this->processDeletePost($postId));
 
     }
 

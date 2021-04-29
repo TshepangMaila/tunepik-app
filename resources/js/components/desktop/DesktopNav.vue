@@ -71,7 +71,17 @@
             
                 this.menuItems.forEach(item => {
 
-                    this.itemColors[item] = current === item.name ? this.getIconColor() : this.getTextColor()
+                    /*this.itemColors[item] = current === item.name ? this.getIconColor() : this.getTextColor()*/
+
+                    if(current === item.name){
+
+                        this.itemColors[item] = this.theme.icons.type === 'default' ? this.theme.colors.blue : this.theme.icons.color
+
+                    }else{
+
+                        this.itemColors[item] = this.theme.type === 'theme-dark' || this.theme.type === 'theme-dim' ? (this.theme.icons.type === 'default' ? this.theme.colors.light : this.theme.colors.lightgrey) : this.theme.colors.darkgrey
+
+                    }
 
                 })
 

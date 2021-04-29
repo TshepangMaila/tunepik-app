@@ -156,11 +156,6 @@ export const mutations = {
 
 export const actions = {
 
-
-  /*
-   Get Comments
-  */
-
   getPostComments : async function({ commit }, postId){
 
     commit('setGetCommentsLoading', true);

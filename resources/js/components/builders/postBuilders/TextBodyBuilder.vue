@@ -23,13 +23,11 @@
                 class : 'container text-container'
               } 
             }, [
-
               createElement('span', this.text,{
                 attrs : {
                   class : 'app-post-text'
                 }
               })
-
             ])
 
           }else{
