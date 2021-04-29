@@ -8,7 +8,6 @@
           
           <div class="left-fixed-wrapper wrapper">
             
-
             <div class="name-wrap pt-3 pl-5 pr-5" style="width:60%;">
               <name></name>
             </div>
@@ -19,7 +18,7 @@
 
             <div class="space-large"></div>
 
-            <story-header class="pl-2">
+            <story-header class="pl-2" v-if="!screen">
               <story-grid-bundler :url="storyURL"></story-grid-bundler>
             </story-header>
 

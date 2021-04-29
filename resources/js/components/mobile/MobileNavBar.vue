@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name : "MobileNavBar",
@@ -136,6 +136,7 @@ export default {
 
   },
   methods: {
+    ...mapActions("tunepik", ['getIconColor', 'getTextColor']),
     makeColor : function(icon){
 
       let keys = ['home', 'search', 'messages', 'add', 'notifications']
@@ -144,7 +145,7 @@ export default {
 
         if(keys[i] === icon) {
 
-          this.colors[keys[i]] = this.theme.icons.type === 'default' ? this.theme.colors.blue : this.theme.icons.color
+          this.colors[keys[i]] = this.getIconColor()/*this.theme.icons.type === 'default' ? this.theme.colors.blue : this.theme.icons.color*/
 
           this.bg[keys[i]] = `rgba(211, 211, 211, .125)`
 
@@ -152,7 +153,7 @@ export default {
 
         }else {
 
-            this.colors[keys[i]] = this.theme.type === 'theme-dark' || this.theme.type === 'theme-dim' ? (this.theme.icons.type === 'default' ? this.theme.colors.light : this.theme.colors.lightgrey) : this.theme.colors.darkgrey
+            this.colors[keys[i]] = this.getTextColor()/*this.theme.type === 'theme-dark' || this.theme.type === 'theme-dim' ? (this.theme.icons.type === 'default' ? this.theme.colors.light : this.theme.colors.lightgrey) : this.theme.colors.darkgrey*/
             this.bg[keys[i]] = 'transparent'/*this.colors[keys[i]]*/
 
           }

@@ -54,34 +54,28 @@
               </div>
             </div>
           <div class="col-lg-4 darkmode-wrapper" style="">
-            <div class="loading-wrapper skeleton-shimmer" v-if="true"></div>
+            <div class="loading-wrapper skeleton-shimmer" v-if="loading"></div>
             <div class="" v-else>
-            <div class="user-wrapper" v-if="check">
-
-              <div class="media">
+              <div class="user-wrapper media" v-if="check">
+                  
+                  <Picture class="pb-1" :user="model" :height="45" :width="45"></Picture>
+                  <div class="media-body pl-2 align-self-center">
+                    <router-link :to="{ name : 'profile', params : { username : model.getBasic().handle } }">
+                      <user-name :user="model"></user-name>
+                    </router-link>
+                  </div>
+                  <div class="media-left align-self-center"></div>
                 
-                <div class="media-left">
-                  <img :src="''+ user.model.getImgs().profile" class="rounded-circle" height="40" width="40" />
-                </div>
-                <div class="media-body ml-3">
-                  <router-link :to="{ name : 'profile', params : { username : user.model.getBasic().handle } }">
-                    <span class="app-max-text block-text">
-                      {{ user.model.getBasic().name }}
-                    </span>
-                    <span class="app-grey-text">
-                      @{{ user.model.getBasic().handle }}
-                    </span>
-                  </router-link>
-                </div>
-                <div class="media-left"></div>
-
               </div>
-              
+              <div class="login-wrapper media" v-else>
+                  <div class="media-left align-self-center">
+                    <v-button :type="'primary'">Login</v-button>
+                  </div>
+                  <div class="media-right align-self-center">
+                    <v-button :type="'primary'">Create Account</v-button>
+                  </div>
+              </div>
             </div>
-            <div class="login-wrapper" v-else>
-              LogIn
-            </div>
-          </div>
             
           </div>
         </div>
@@ -109,7 +103,7 @@ export default {
 
   computed: {
 
-    ...mapGetters("auth", ['user', 'check', 'loading']),
+    ...mapGetters("auth", ['user', 'check', 'loading', 'model']),
 
   },
   methods: {
