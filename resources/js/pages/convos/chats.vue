@@ -1,6 +1,10 @@
 <template>
 
-	<ChatsList></ChatsList>
+	<columner>
+		
+		<chats-list></chats-list>
+
+	</columner>
 	
 </template>
 

@@ -12,7 +12,7 @@
 
 			<div class="wrapper-info" v-if="screen && !file">
 				
-				<div class="card">
+				<div class="card no-border">
 
 					<Navigation >
 						
@@ -55,7 +55,7 @@
 				  	<img class="cover-img" :src="model.getImgs().cover"/>
 
 				 </div> -->
-					<div class="card-body p-3" v-if="!file">
+					<div class="card-body p-3 no-border" v-if="!file">
 
 						 <div class="space-medium"></div>
 							
@@ -64,15 +64,11 @@
 								<div class="media-left align-self-start">
 
 								  <center>
-
-									  <img :src="'' + model.getImgs().profile" class="rounded-circle " height="75" width="75" />
+								  	<Picture :user="model" :height="75" :width="75"></Picture>
 									  <div class="space-small"></div>
 											<v-button :nativeType="'button'" :type="'primary'" @click.native="avatar = true">
-
 												<clipper-upload v-model="image.src">Change Avatar</clipper-upload>
-
 											</v-button>
-
 									</center>
 
 								</div>
@@ -150,45 +146,30 @@
 		export default {
 
 				name 			: "AccountBuilder",
-				data 			: function(){
-					return {
-
-						screen  		: globs.app.isMobile,
-						avatar      : '',
-
-					};
-				},
+				data 			: () => ({
+					screen  		: globs.app.isMobile,
+					avatar      : '',
+				}),
 				components : {
-
 					Navigation,
 					ChangeAvatar
-
 				},
 				methods 	: {
-
 					...mapActions("auth", ['updateUserInfo']),
 					...mapMutations("files", ['isSet', 'chosen', 'isFile', 'done']),
 					...mapMutations('tunepik', ['SNACK_BAR'])
-				  
-
 				},
 				computed 	: {
-
 					...mapGetters("auth", ['user', 'update']),
 					...mapGetters("profile", ['profile']),
 					...mapGetters("files", ['image', 'checks', 'file']),
 					form  : function(){
-
 						return globs.app.get('#update-form');
-
 					},
 					model : function(){
-
 						return new globs.model.user(this.user.model);
-
 					},
 					list 	: function(){
-
 						return [
 
 							{

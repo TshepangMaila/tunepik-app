@@ -8,21 +8,17 @@
 		</template>
 		<template v-else>
 			<div class="make-one">
-			<Navigation v-if="screen && !file">
+			<Navigation v-if="!file">
 			
 				<div class="media-body">
 
 						<div class="media">
-
 							<div class="media-body ml-2 align-self-center">
-								
 								<span class="app-max-text text-top">
 									<router-link :to="{ name : 'profile', params : { username : userName } }">
-
 			              <user-name :user="user.model" :limit="12"></user-name>
 									</router-link>
 								</span>
-
 							</div>
 
 						</div>
@@ -31,42 +27,30 @@
 				<div class="media-right align-self-center">
 
 					<span class="icon-wrapper p-1">
-						
 						<a class="options" @click="show = !show">
 							<i class="fa fa-cog app-fa"></i>
 						</a>
-
 					</span>
 
 					<div class="overlay-wrap" v-show="show">
 						
 						<div class="main-wrap card no-border" v-show="show" :class="[show ? 'fade-in' : 'fade-out']">
-							
 							<div class="media card-header no-border">
-								
 								<div class="media-left align-self-center">
-									
 									<Picture :width="35" :height="35" :user="user.model"></Picture>
-
 								</div>
 								<div class="media-body align-self-center pl-3">
-									
 									Message Options
-
 								</div>
 								<div class="media-right">
-									
 									<a @click="show = !show">
 										<i class="fa fa-times app-fa"></i>
 									</a>
-
 								</div>
 
 							</div>
 							<div class="card-body no-border">
-								
 								<MessageOptions :user="user.model"></MessageOptions>
-
 							</div>
 
 						</div>
@@ -76,7 +60,6 @@
 				</div>
 
 			</Navigation>
-			<div class="card-header no-border" v-else></div>
 							
 				<div class="card-body no-border">
 					<div class="visible-xs space-large"></div>

@@ -60,7 +60,8 @@
 			...mapMutations("story", ['SET_VIEW_INDEX'])
 		},
 		computed : {
-			...mapGetters("story", ['stories'])
+			...mapGetters("story", ['stories']),
+			...mapGetters("auth", ['model'])
 		},
 		mounted : function(){
 			this.$nextTick(() => {

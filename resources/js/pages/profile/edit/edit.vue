@@ -15,7 +15,7 @@
 						
 						<div class="card no-border">
 							
-							<Navigation v-if="screen">
+							<Navigation>
 				
 								<div class="media-body align-self-center">
 									
@@ -29,7 +29,7 @@
 								</div>
 
 							</Navigation>
-							<div class="card-header media" v-else>
+							<!-- <div class="card-header media" v-else>
 							
 								<div class="media-left">
 									
@@ -45,7 +45,7 @@
 								</div>
 								<div class="media-right"></div>
 
-							</div>
+							</div> -->
 
 							<!-- SIDE BAR BODY -->
 							<div class="card-body list-group">
@@ -180,21 +180,13 @@
 
 			 name 			: "Edit",
 			 scrollToTop : false,
-			 data : function(){
-
-			 		return {
-
-			 			screen 	: globs.app.isMobile,
-			 			show : false,
-			 			loading : false
-
-			 		};
-
-			 },
+			 data :() => ({
+	 			screen 	: globs.app.isMobile,
+	 			show : false,
+	 			loading : false
+			 }),
 			 components : {
-
-			 		Navigation
-
+			 	Navigation
 			 },
 			 methods : {
 
@@ -211,7 +203,6 @@
 
 			 },
 			 computed : {
-
 			 	...mapGetters('auth', ['model']),
 			 	list : function(){
 

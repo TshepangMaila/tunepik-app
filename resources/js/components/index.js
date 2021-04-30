@@ -18,13 +18,14 @@ import MobileNavBar from './mobile/MobileNavBar'
 
 import SlideSkeleton from './builders/skeletonBuilders/SlideSkeleton'
 import Icon from './Icon'
-import Snackbar from './Snackbar'
+import SnackBar from './SnackBar'
 import Picture from './Picture'
 import ProfileSnippet from './builders/snippets/ProfileSnippet'
 import Name from './Name'
 import UserName from './UserName'
 import Verified from './Verified'
 import Spinner from './Spinner'
+import Columner from './Columner'
 
 import { HasError, AlertError, AlertSuccess } from 'vform'
 
@@ -45,13 +46,14 @@ import { HasError, AlertError, AlertSuccess } from 'vform'
   CardSlideBundler,
   SlideSkeleton,
   Icon,
-  Snackbar,
+  SnackBar,
   ProfileSnippet,
   Picture,
   Name,
   UserName,
   Verified,
-  Spinner
+  Spinner,
+  Columner
 ].forEach(Component => {
   Vue.component(Component.name, Component)
 })

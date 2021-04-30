@@ -33,22 +33,17 @@
 
 	export default {
 
-		name 		: 'Snackbar',
+		name 		: 'SnackBar',
 		methods  : {
-
 			...mapMutations('tunepik', ['SNACK_BAR']),
-
 		},
 		computed : {
-
 			...mapGetters('tunepik', ['overlay', 'theme']),
 			snackbar : function(){
 				return this.overlay.snackbar
 			},
 			bgColor : function(){
-
 				return this.theme.icons.color == this.theme.colors.dark ? this.theme.colors.blue : this.theme.icons.color
-
 			}
 
 		}

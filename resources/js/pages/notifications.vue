@@ -1,8 +1,8 @@
 <template>
 
-	<div class="wrapper">
-
-		<div v-if="screen">
+	<columner>
+		
+		<div class="wrapper">
 
 			<Navigation>
 					
@@ -84,20 +84,9 @@
 
 			<NotificationsBundler :notifications="notifications"></NotificationsBundler>
 
-		</div>
-		<div class="list-group" v-else>
-
-			<div class="list-group-item item-header">
-				
-				<!-- DESKTOP NOTIFS HEADER -->
-
-			</div>
-			<!-- ADD MORE NOTIFICATIONS -->
-			<NotificationsBundler :notifications="notifications"></NotificationsBundler>
-
-		</div>
-
 	</div>
+
+	</columner>
 	
 </template>
 

@@ -2,7 +2,7 @@
 
 		<div class="wrapper card no-border">
 			
-			<Navigation v-if="screen">
+			<Navigation>
 				
 				<div class="media-body align-self-center">
 					
@@ -22,20 +22,6 @@
 				</div>
 
 			</Navigation>
-			<div class="card-header" v-else>
-				
-				<div class="media-body">
-					
-					<center>
-						<span class="app-max-text">
-							Messages
-						</span>
-					</center>
-
-				</div>
-				<div class="media-right"></div>
-
-			</div>
 			<div class="card-body" v-if="chat.loading">
 				
 				<div class="space-large visible-xs"></div>

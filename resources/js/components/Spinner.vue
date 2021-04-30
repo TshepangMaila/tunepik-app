@@ -9,7 +9,7 @@
 	import { mapGetters } from 'vuex'
 
 	export default {
-		name : "Spinner"
+		name : "Spinner",
 		computed : {
 			...mapGetters('tunepik', ['theme']),
 			border : function(){

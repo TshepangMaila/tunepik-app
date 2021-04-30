@@ -2,54 +2,35 @@
 	
 	<div class="wrapper card no-border">
 		
-		<Navigation v-if="screen">
-			
+		<Navigation>
 			<div class="media-body align-self-center">
-				
-					<span class="app-max-text">
-						Display
-					</span>
-
-			</div>
-			<div class="media-right align-self-center">
-				
-				<v-button @click="history.back()" class="btn-top" :type="'primary'">
-					Done
-				</v-button>
-
-			</div>
-
-		</Navigation>
-		<div class="card-header" v-else>
-			
-			<center>
 				<span class="app-max-text">
 					Display
 				</span>
-			</center>
-
-		</div>
+			</div>
+			<div class="media-right align-self-center">
+				<v-button @click="history.back()" class="btn-top" :type="'primary'">
+					Done
+				</v-button>
+			</div>
+		</Navigation>
 		<div class="card-body">
 
 			<div class="space-large visible-xs"></div>
 			<div class="space-medium visible-xs"></div>
 			<div class="space-large"></div>
-
 				<div class="background-theme grey-matter m-1">
 					<br />
 				<span class="app-max-text p-3">
 					Theme Modes
 				</span>
-
 				<center>
 					<div class="row-wrap pt-2 pb-2">
 						
 						<a class="theme-chooser" @click="toggleTheme('theme-light')">
 							<div class="block-inline item-block mr-1 light">
 								<span class="app-bolder-text it-text" style="color:#111;">
-									
 									Snow
-
 								</span>
 							</div>
 						</a>
@@ -57,9 +38,7 @@
 						<a class="theme-chooser" @click="toggleTheme('theme-dark')">
 							<div class="ml-1 block-inline item-block dark">
 								<span class="app-bolder-text it-text" style="color:#fff;">
-									
 									Dark
-
 								</span>
 							</div>
 						</a>
@@ -67,9 +46,7 @@
 						<a class="theme-chooser" @click="toggleTheme('theme-dim')">
 							<div class="ml-1 block-inline item-block dark">
 								<span class="app-bolder-text it-text" :style="{ color : theme.colors.white }">
-									
 									Nighty
-
 								</span>
 							</div>
 						</a>
@@ -81,28 +58,20 @@
 			<div class="space-medium"></div>
 
 			<div class="icon-picker m-1 grey-matter p-2">
-
 				<div class="media p-2">
-					
 					<div class="media-body align-self-center">
-						
 						<span class="app-max-text">
 							Primary Colors
 						</span>
-
 					</div>
 					<div class="media-right align-self-center">
 						
 						<v-button @click.native="toggleColors('default')" :type="'primary'">
 							Default
 						</v-button>
-
 					</div>
-
 				</div>
-
 				<div class="space-medium"></div>
-				
 				<center>
 					
 					<div class="row-wrap">
@@ -122,19 +91,12 @@
 						<a @click="toggleColors('second')">
 							<div class="circle-block block-inline" :class="[{border : theme.icons.type == 'second'}]" :style="{ backgroundColor : theme.colors.primary[1] }">
 								
-
-
 							</div>
 						</a>
-
 						<a @click="toggleColors('third')">
 							<div class="circle-block block-inline" :class="[{border : theme.icons.type == 'third'}]" :style="{ backgroundColor : theme.colors.primary[2] }">
-
-								
-
 							</div>
 						</a>
-
 					</div>
 
 				</center>
@@ -144,34 +106,22 @@
 			<div class="space-medium"></div>
 
 			<div class="button-picker">
-				
 				<div class="grey-matter card no-border">
-					
 					<div class="card-header no-border pl-2">
-						
 						<span class="app-max-text">
 							Buttons Appearance
 						</span>
-
 					</div>
 					<div class="card-body no-border">
-						
 						<center>
-							
 							<v-button @click.native="() => {}" :type="'primary'" :large="true" :block="true">
 								 Button
 							</v-button>
-
 						</center>
 						<div class="space-medium"></div>
-
 						<center>
 							<div class="range-picker" style="width:75%">
-								
-								
-									<clipper-range v-model="button.range" :min="4" :max="20"></clipper-range>
-								
-
+								<clipper-range v-model="button.range" :min="4" :max="20"></clipper-range>
 							</div>
 						</center>
 

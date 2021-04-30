@@ -59,6 +59,10 @@ export const state = {
 	button : {
 		 /*type : localStorage.getItem('button-type') === null ? 'button-circle' : localStorage.getItem('button-type'),*/
 		 range : localStorage.getItem('button-range') === null ? 20 : Number(localStorage.getItem('button-range'))
+	},
+	columns : {
+		one : 'col-lg-8',
+		two : 'col-lg-4'
 	}
 
 }
@@ -68,6 +72,7 @@ export const getters = {
 	theme  		: state => state.theme,
 	overlay		: state => state.overlay,
 	button 		: state => state.button,
+	columns 	: state => state.columns
 
 }
 
@@ -113,18 +118,14 @@ export const mutations = {
 	},
 	SET_BUTTON_STYLE : function(state, button){
 
-		/*if(localStorage.getItem('button-type')){
-
-			localStorage.removeItem('button-type')
-
-		}
-
-		localStorage.setItem('button-type', button.type)
-
-		state.button.type = button.type*/
-
 		localStorage.setItem('button-range', button.range)
 		state.button.range = button.range
+
+	},
+	SET_COLUMNS : function(state, columns){
+
+		state.columns.one = columns.one || 'col-lg-8'
+		state.columns.two = columns.two || 'col-lg-4'
 
 	}
 
@@ -266,8 +267,6 @@ export const actions = {
 
 			}
 
-
-
 		switch (type) {
 
 			case 'first' 	:
@@ -328,19 +327,13 @@ export const actions = {
 
 	},
 	togglePopUp 	 : function({ state, commit }){
-
 			commit('POP_UP', state.overlay.popup.isOpen ? false : true)
-
 	},
 	toggleConfirm  : function({ state, commit }){
-
 		commit('CONFIRM', state.overlay.confirm.isOpen ? false : true)
-
 	},
 
 	isVisible 			: function(_, args){
-
-				// console.log(args)
 
    	  let pageTop = jQuery(window).scrollTop();
       let pageBottom = pageTop + jQuery(window).height();

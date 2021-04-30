@@ -12604,6 +12604,7 @@ html {
 
 .card-header {
   background-color: transparent;
+  border-bottom: 0.04em solid rgba(211, 211, 211, 0.1);
 }
 
 .card {

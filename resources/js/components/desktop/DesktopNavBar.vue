@@ -71,7 +71,7 @@
                   <div class="media-left align-self-center">
                     <v-button :type="'primary'">Login</v-button>
                   </div>
-                  <div class="media-right align-self-center">
+                  <div class="media-right align-self-center pl-2">
                     <v-button :type="'primary'">Create Account</v-button>
                   </div>
               </div>

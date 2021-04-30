@@ -23,7 +23,7 @@
 				<div class="media-body ml-2 align-self-center">
 					Delete
 				</div>
-				<spinner class="align-self-center" v-if="delete.loading"></spinner>
+				<spinner class="align-self-center" v-if="deleter.loading"></spinner>
 			</div>
 		</a>
 
@@ -45,7 +45,7 @@
 
 		name : "CommentOptions",
 		data : () => ({
-			delete : { 
+			deleter : { 
 				loading : false
 			}
 		}),
@@ -58,7 +58,7 @@
 			...mapMutations('tunepik', ['SNACK_BAR']),
 			deleteComment : function(){
 
-				this.delete.loading = true
+				this.deleter.loading = true
 
 				axios.get(`/api/react/comment/${this.comment.getPost().id}/?type=comment`)
 						 .then(({data}) => {
@@ -66,7 +66,7 @@
 						 	this.SNACK_BAR({ isOpen : true, message : data.message, theme : 'primary' })
 						 	this.comment.getPost().type = data.deleted ? 'deleted' : this.comment.getPost().type
 
-						 	this.delete.loading = false
+						 	this.deleter.loading = false
 
 						 }).catch(e => {
 						 	console.log(e)
