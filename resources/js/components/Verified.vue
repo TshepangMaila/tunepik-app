@@ -10,7 +10,7 @@
 	export default {
 
 		name : "Verified",
-		props : ['user', 'verified'],
+		props : ['user'],
 
 	};
 	
