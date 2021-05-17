@@ -23,15 +23,44 @@
                 class : 'container text-container'
               } 
             }, [
-              createElement('span', this.text,{
+              this.textBundler(),
+              createElement('span',{
                 attrs : {
                   class : 'app-post-text'
                 }
-              })
-            ])
+              }) // End Of 2nd Create Element
+            ]
+          ) // End Of Root Create Element
 
           }else{
             return createElement('span', '')
+          }
+        },
+        methods : {
+          mentions(createElement, text){
+
+            return text.replace(/@+([a-zA-Z0-9_]+)/g, (originalText, cleanText) => {
+              return createElement('router-link', {
+                to : { name : 'profile', params : { username : cleanText } },
+                attrs : {
+                  class : 'app-highlighted-text'
+                }
+              })
+            })
+
+          },
+          hashtags(createElement, text){
+            return text.replace(/#+([a-zA-Z0-9_]+)/g, (originalText, cleanText) => {
+              return createElement('router-link', {
+                to : { name : 'profile', params : { username : cleanText } },
+                attrs : {
+                  class : 'app-highlighted-text'
+                }
+              })
+            })
+          },
+          textBundler(createElement, text){
+            return this.hashtags(createElement, this.mentions(createElement, text))
           }
         }
 
