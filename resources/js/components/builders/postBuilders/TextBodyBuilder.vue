@@ -45,18 +45,18 @@
                 attrs : {
                   class : 'app-highlighted-text'
                 }
-              })
+              }, [originalText])
             })
 
           },
           hashtags(createElement, text){
             return text.replace(/#+([a-zA-Z0-9_]+)/g, (originalText, cleanText) => {
               return createElement('router-link', {
-                to : { name : 'profile', params : { username : cleanText } },
+                to : { name : 'results', query : { type : 'posts' }, params : { term : cleanText } },
                 attrs : {
                   class : 'app-highlighted-text'
                 }
-              })
+              }, [ originalText ])
             })
           },
           textBundler(createElement, text){
