@@ -15,7 +15,7 @@
       </router-link>
 		</a>
 
-		<a @click="deleteComment()" class="list-group-item list-group-item-action b-under" v-if="comment.getActivity().me || post.getActivity().me">
+		<a @click="deleteComment()" class="list-group-item list-group-item-action b-under" v-if="comment.getActivity().me || comment.getActivity().me">
 			<div class="media">
 				<div class="media-left align-self-center">
 					<i class="fa fa-trash app-fa"></i>

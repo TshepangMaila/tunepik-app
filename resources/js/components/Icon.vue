@@ -3,7 +3,7 @@
 	<span class="icon-wrap">
 		
 		<svg class="app-real-icon" id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" :width="width" :height="height">
-			<path stroke-width="1" :fill="fill" fill-opacity="1" :d="path[icon]" />
+			<path :fill="fill" fill-opacity="1" :d="path[icon]" />
 		</svg>
 
 	</span>
@@ -72,4 +72,8 @@
 
 <style scoped>
 	
+	.app-real-icon{
+		stroke-width : 2px;
+	}
+
 </style>
