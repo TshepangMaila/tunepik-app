@@ -2,7 +2,6 @@
 
 
 .overlay-wrap{
-
   position: fixed;
   top : 0;
   bottom: 0;
@@ -11,7 +10,12 @@
   width: 100%;
   height: 100%;
   z-index: 99999 !important;
+}
 
+#main, #view, .row {
+  overflow-x : unset;
+  margin-right : 15px;
+  margin-left : 0px;
 }
 
 .main-wrap{

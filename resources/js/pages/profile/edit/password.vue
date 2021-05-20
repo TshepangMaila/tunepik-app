@@ -2,19 +2,14 @@
 
 			<div class="wrapper">
 
-					<Navigation v-if="screen">
-
+					<Navigation>
 						<div class="media-body align-self-center">
-
-								<span class="app-max-text">
-									Security
-								</span>
-
+							<span class="app-max-text">
+								Security
+							</span>
 						</div>
 						<div class="media-right p-2">
-
 						</div>
-
 					</Navigation>
 					<div class="visible-xs space-large"></div>
 					<div class="visible-xs space-large"></div>
@@ -33,13 +28,9 @@
 					  <form class="password-form" @submit.prevent="updatePassword()">
 
 					  	<div class="form-group">
-
-					  			<span class="app-post-text text-success" style="" v-if="!password.error">{{ password.message }}</span>
-
+					  		<span class="app-post-text text-success" style="" v-if="!password.error">{{ password.message }}</span>
 					  		<label class="app-bolder-text">Change Password</label>
-
 					    	<input type="password" name="ch_password" v-model="form.newPassword" class="form-control" placeholder="New Password">
-
 					  	</div>
 
 					    <div class="form-group">
@@ -65,7 +56,6 @@
 						  <div class="form-group">
 
 					    	<label  class="app-bolder-text">Current Password</label>
-
 					    	<input type="password" name="password" v-model="form.password" class="form-control" placeholder="Current Password">
 
 					    </div>
@@ -191,5 +181,7 @@
 			}
 
 		}
+
+
 
 </style>

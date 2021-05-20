@@ -19,20 +19,26 @@
         props : ['text'],
         template : '<component v-bind:is="transform"></component>',
         computed : {
-          ...mapGetters('tunepik', ['theme']),
           transform(){
             return {
-              template : this.textBundler(this.text)
+              template : this.textBundler(this.text),
+              computed : {
+                ...mapGetters('tunepik', ['theme']),
+                color : function(){
+                  if(this.theme.icons.type === 'default') return this.theme.colors.blue
+                  else if(this.theme.icons.type === 'danger') return this.theme.colors.red
+                  else return (this.theme.icons.color === this.theme.colors.light ? this.theme.colors.blue : this.theme.icons.color)
+                }
+              }
             }
           }
         },
         methods : {
-
           mentions: function(str) {
-            return str.replace(/@([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;color: skyblue !important;font-weight: 10.5pt !important;" class="app-highlighted-text" to="/$1">@$1</router-link></span>')
+            return str.replace(/@([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;font-weight: 10.5pt !important;" :style="{ color : color }" class="app-highlighted-text" to="/$1">@$1</router-link></span>')
           },
           hashtags : function(str){
-            return str.replace(/#([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;color: skyblue !important;font-weight: 10.5pt !important;" class="app-highlighted-text" to="/$1">#$1</router-link></span>')
+            return str.replace(/#([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;font-weight: 10.5pt !important;" :style="{ color : color }" class="app-highlighted-text" to="/$1">#$1</router-link></span>')
           },
           textBundler(text){
 

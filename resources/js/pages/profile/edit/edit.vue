@@ -1,55 +1,26 @@
 <template>
 
-		<div class="root-edit-wrapper">
+		<div class="root-edit-wrapper grey-matter">
 
-			<div class="visible-lg space-large"></div>
-			<div class="visible-lg space-large"></div>
 			<div class="visible-lg space-large"></div>
 			<div class="visible-xs space-large"></div>
 			<div class="visible-xs space-medium"></div>
 			<div class="row">
 				
-				<div class="col-lg-3">
-					
+				<div class="col-lg-4">
 					<div class="sidebar">
-						
 						<div class="card no-border">
 							
 							<Navigation>
-				
 								<div class="media-body align-self-center">
-									
-										<span class="app-max-text">
-											Settings
-										</span>
-
+									<span class="app-max-text">
+										Settings
+									</span>
 								</div>
-								<div class="media-right">
-									<!-- <Name></Name> -->
-								</div>
-
 							</Navigation>
-							<!-- <div class="card-header media" v-else>
-							
-								<div class="media-left">
-									
-								</div>
-								<div class="media-body">
-									
-									<center>
-										<span class="app-max-text">
-											Settings
-										</span>
-									</center>
-
-								</div>
-								<div class="media-right"></div>
-
-							</div> -->
 
 							<!-- SIDE BAR BODY -->
 							<div class="card-body list-group">
-
 								<template v-for="(item, index) in list">
 										
 										<router-link :to="{ name : item.url, params : { type : item.type || '' } }" class="list-group-item list-group-item-action" v-if="item.index != 6">
@@ -57,13 +28,9 @@
 											<div class="media">
 
 												<div class="align-self-center media-left p-2">
-													
 													<span class="icon-wrapper">
-														
 														<i :class="[item.icon]"></i>
-
 													</span>
-
 												</div>
 											
 												<div class="media-body align-self-center">
@@ -72,14 +39,9 @@
 													</span>
 												</div>
 												<div class="media-right align-self-center p-2">
-													
 													<span class="icon-wrapper">
-														
-														<!-- ChevronICON -->
 														<i class="fa fa-chevron-right app-fa"></i>
-
 													</span>
-
 												</div>
 
 											</div>
@@ -92,23 +54,18 @@
 												Logout
 											</v-button>
 										</center>
-
 									</div>
 
 									</template>
 
 									<div class="overlay-wrap" v-show="show">
-											
 											<div class="main-wrap card no-border" v-show="show" :class="[ show ? 'fade-in' : 'fade-out']">
-												
 												<div class="card-header no-border">
 													
 													<div class="media">
 														<Picture :width="40" :height="40" :user="model"></Picture>
 														<div class="media-body pl-3 align-self-center">
-															
 															<user-name :user="model"></user-name>
-
 														</div>
 														<div class="media-right align-self-center">
 															<a @click="show = !show">
@@ -131,9 +88,7 @@
 													<div class="list-group-item">
 														
 														<v-button :loading="loading" @click.native="logout()" :type="'primary'" class="mobile-share-control-btn yes">
-        
 						                  Logout
-
 						                </v-button>
 						                <v-button @click.native="show = !show" :type="'danger'" class="mobile-share-control-btn no">
 						                  Cancel

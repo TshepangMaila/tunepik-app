@@ -1003,8 +1003,7 @@ a > span > .app-real-icon:active{
 
   .app-highlighted-text{
     font-weight: bold !important;
-    color: skyblue !important;
-    font-weight: 10.5pt !important;
+    font-weight: 10.5pt;
   }
 
   .app-notification-dropdown{
@@ -1510,8 +1509,7 @@ a > span > .app-real-icon:active{
 
   .app-highlighted-text{
     font-weight: bold !important;
-    color: skyblue !important;
-    font-weight: 10.5pt !important;
+    font-weight: 10.5pt;
   }
 
   .app-notification-dropdown,
@@ -1832,7 +1830,7 @@ body{
    #main,
    #view,
    .row{
-    overflow-x: hidden;
+    overflow-x: unset;
    }
    body{
     overflow-x: hidden;

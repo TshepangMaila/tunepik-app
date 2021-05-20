@@ -2,34 +2,20 @@
 
 	<div class="wrapper">
 		
-			<Navigation v-if="screen">
+			<Navigation >
 				
 				<div class="media-body align-self-center">
-					
-						<span class="app-max-text">
-							Blocked Accounts
-						</span>
-
+					<span class="app-max-text">
+						Blocked Accounts
+					</span>
 				</div>
 				<div class="media-right p-3"></div>
 
 			</Navigation>
-			<div class="mb-2" v-else>
-				
-				<span class="app-max-text pl-2 block-text">
-					Blocked Accounts
-				</span>
-				<span class="app-grey-text-lg">
-					Unblock User Accounts You Have Blocked
-				</span>
-
-			</div>
 			<div class="visible-xs space-large"></div>
 			<div class="visible-xs space-medium"></div>
 			<template v-if="blocked.loading">
-				
-				<UserListSkeleton></UserListSkeleton>
-
+				<user-list-skeleton></user-list-skeleton>
 			</template>
 			<template v-else>
 				

@@ -233,6 +233,8 @@
 
 			width: 100px;
 			height: 100px;
+			padding-top: 40px;
+			border-radius: 10px;
 
 		}
 		
