@@ -18,21 +18,17 @@
 
           </div>
           <div class="media-right align-self-center">
-
             <Picture :user="model" :width="30" :height="30"></Picture>
-
           </div>
 
         </Navigation>
 
         <div class="">
-          <MobileNavBar />
+          <mobile-nav-bar />
         </div>
 
         <div class="contain wrapper">
-
-          <MobileBaseView />
-
+          <mobile-base-view />
         </div>
 
       </div>
@@ -42,13 +38,9 @@
     <template v-else>
 
       <div class="root-d-element">
-
-        <DesktopNavBar />
-
+        <desktop-nav-bar />
         <div class="container mt-1">
-
-            <DesktopBaseView />
-
+          <desktop-base-view />
         </div>
 
       </div >
@@ -66,41 +58,26 @@ import Navigation from '../components/mobile/root/Navigation'
 
 export default {
   name: 'MainLayout',
-  data : () => {
-
-    return {
-
-      screen : globs.app.isMobile
-
-    }
-
-  },
+  data : () => ({
+    screen : globs.app.isMobile
+  }),
   components: {
     Navbar,
     Navigation
   },
   methods  : {
-
     ...mapActions("tunepik", ['backgroundColor']),
-
   },
   computed : {
-
     ...mapGetters("tunepik", ['theme']),
     ...mapGetters('auth', ['model']),
-
   },
   beforeMount : function() {
-
     this.$nextTick(function(){
-
       this.backgroundColor();
-
     });
-
   },
   mounted : function(){
-
   }
 
 };

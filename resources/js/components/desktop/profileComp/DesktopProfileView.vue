@@ -1,7 +1,6 @@
 <template>
        
-  <div class="wrapper-view">
-
+  <div class="wrapper-view row">
     <!-- Cover Photo! -->
     <div class="user-wrap-cover">
       

@@ -8,6 +8,8 @@
 
   import globs from '../../../tunepik/attack.js'
 
+  import {mapGetters} from 'vuex'
+
     export default {
 
         name    : "TextBodyBuilder",
@@ -17,6 +19,7 @@
         props : ['text'],
         template : '<component v-bind:is="transform"></component>',
         computed : {
+          ...mapGetters('tunepik', ['theme']),
           transform(){
             return {
               template : this.textBundler(this.text)
@@ -26,10 +29,10 @@
         methods : {
 
           mentions: function(str) {
-            return str.replace(/@([\w]+)/g,'<span class="app-highlighted-text" style="font-weight: bold !important;color: skyblue !important;font-weight: 10.5pt !important;"><router-link to="/$1">@$1</router-link></span>')
+            return str.replace(/@([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;color: skyblue !important;font-weight: 10.5pt !important;" class="app-highlighted-text" to="/$1">@$1</router-link></span>')
           },
           hashtags : function(str){
-            return str.replace(/#([\w]+)/g,'<span class="app-highlighted-text"><router-link class="app-highlighted-text" to="/$1">#$1</router-link></span>')
+            return str.replace(/#([\w]+)/g,'<span class="app-highlighted-text"><router-link style="font-weight: bold !important;color: skyblue !important;font-weight: 10.5pt !important;" class="app-highlighted-text" to="/$1">#$1</router-link></span>')
           },
           textBundler(text){
 

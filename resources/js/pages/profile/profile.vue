@@ -12,9 +12,7 @@
 
         name    : "Profile",
         components : {
-
         	ProfileBundler
-
         }
 
       };

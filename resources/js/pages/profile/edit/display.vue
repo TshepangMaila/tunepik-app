@@ -105,6 +105,21 @@
 
 			<div class="space-medium"></div>
 
+			<div class="grey-matter card no-border">
+				
+				<div class="card-header no-border pl-2">
+					<span class="app-max-text">
+						Text Appearance
+					</span>
+				</div>
+				<div class="card-body no-border">
+					<text-body-builder :text="dummyText"></text-body-builder>
+				</div>
+
+			</div>
+
+			<div class="space-medium"></div>
+
 			<div class="button-picker">
 				<div class="grey-matter card no-border">
 					<div class="card-header no-border pl-2">
@@ -140,43 +155,32 @@
 <script type="text/javascript">
 	
 	import Navigation from '../../../components/mobile/root/Navigation'
+	import TextBodyBuilder from '../../../components/builders/postBuilders/TextBodyBuilder'
 	import globs from '../../../tunepik/attack.js'
 	import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 	export default {
 
 		name 		: "Display",
-		data 		: () => {
-
-			return {
-
-				screen   : globs.app.isMobile,
-				border 	 : 'border'
-
-			};
-
-		},
+		data 		: () => ({
+			screen   : globs.app.isMobile,
+			border 	 : 'border',
+			dummyText : "Welcome to #Tunepik, this is how mentions @MaddoxThaGawd and hashtags #Tunepik will look like"
+		}),
 		components : {
-
-			Navigation
-
+			Navigation,
+			TextBodyBuilder
 		},
 		computed : {
 			...mapGetters("tunepik", ['theme', 'button']),
-
 		},
 		methods  : {
-
 			...mapMutations('tunepik', ['SET_BUTTON_STYLE']),
 			...mapActions("tunepik", ['toggleTheme', 'toggleColors'])
-
 		},
 		watch : {
-
 			'button.range' : function(Range){
-
 				 this.SET_BUTTON_STYLE({type : null, range : Range})
-
 			}
 
 		}

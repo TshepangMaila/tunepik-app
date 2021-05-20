@@ -1,21 +1,21 @@
 <template>
 
 	<div class="wrapper">
-		
+		<!-- 
 		<div class="row">
 					
-					<div class="col-lg-8">
+			<div class="col-lg-8"> -->
 
-						<PostsLayoutTab :headerText="header" :user="user"></PostsLayoutTab>
+				<PostsLayoutTab :headerText="header" :user="user"></PostsLayoutTab>
 
-					   <transition name="fade" mode="out-in">
-			        	<router-view />
-			       </transition>
+			   <transition name="fade" mode="out-in">
+	        	<router-view />
+	       </transition>
 
-					</div>
-					<div class="col-lg-4 mt-1" v-if="!screen">feerg</div>
+			<!-- </div>
+			<div class="col-lg-4 mt-1" v-if="!screen"></div>
 
-		</div>
+		</div> -->
 
 	</div>
 	

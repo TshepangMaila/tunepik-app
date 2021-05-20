@@ -1001,6 +1001,12 @@ a > span > .app-real-icon:active{
     font-size: 11pt;
   }
 
+  .app-highlighted-text{
+    font-weight: bold !important;
+    color: skyblue !important;
+    font-weight: 10.5pt !important;
+  }
+
   .app-notification-dropdown{
     width: 31.62%;
     height: auto;
@@ -1500,7 +1506,12 @@ a > span > .app-real-icon:active{
   .app-post-text{
     font-weight: 400;
     font-size: 09pt;
+  }
 
+  .app-highlighted-text{
+    font-weight: bold !important;
+    color: skyblue !important;
+    font-weight: 10.5pt !important;
   }
 
   .app-notification-dropdown,

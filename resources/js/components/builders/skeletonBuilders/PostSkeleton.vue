@@ -3,9 +3,7 @@
 	<div class="wrapper">
 		
 		<template v-for="item in limit">
-			
-			<SinglePostSkeleton></SinglePostSkeleton>
-
+			<single-post-skeleton></single-post-skeleton>
 		</template>
 
 	</div>
@@ -20,17 +18,12 @@
 		export default {
 
 			name 			: "PostSkeleton",
+			data : () => ({
+				limit : globs.limit,
+			}),
 			components : {
-
 				SinglePostSkeleton
-
 			},
-			data 			 : function(){
-				return {
-					limit : globs.limit,
-				};
-			}
-
 		};
 	
 </script>
