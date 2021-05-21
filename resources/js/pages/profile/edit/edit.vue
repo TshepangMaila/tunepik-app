@@ -1,6 +1,6 @@
 <template>
 
-		<div class="root-edit-wrapper grey-matter">
+		<div class="root-edit-wrapper">
 
 			<div class="visible-lg space-large"></div>
 			<div class="visible-xs space-large"></div>

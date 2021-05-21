@@ -12,12 +12,6 @@
   z-index: 99999 !important;
 }
 
-#main, #view, .row {
-  overflow-x : unset;
-  margin-right : 15px;
-  margin-left : 0px;
-}
-
 .main-wrap{
   position:fixed;
   bottom: 30px;
@@ -190,6 +184,11 @@ html {
 
 @media only screen and (min-width : 700px){
 
+  #main, #view, .row {
+    overflow-x : unset;
+    margin-right : 15px;
+    margin-left : 0px;
+  }
 
 	.visible-lg{
 		display: block !important;

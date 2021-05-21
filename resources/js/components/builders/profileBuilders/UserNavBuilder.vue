@@ -9,44 +9,22 @@
         <tr class="app-user-info-nav-tr">
 
           <td class="app-tab app-user-info-nav-tab back-tab pt-2 pl-1">
-
             <center>
-
-              <!-- <a class="profile-back-btn" v-on:click="back()">
-
-                <svg-vue icon="back" class="app-icon"></svg-vue>
-                <Icon :icon="'back'" :width="24" :height="24" :color="theme.icons.color"></Icon>
-
-              </a> -->
               <Picture :height="36" :width="36" :user="user"></Picture>
-
             </center>
-
           </td>
 
           <td class="app-tab app-user-info-nav-tab user-name-tab pl-2">
-
             <router-link :to="{ name : 'profile', params : { username : user.getBasic().handle } }" class="name-link">
-
-              <span class="profile-user-name app-max-text">
-                {{ trim(user.getBasic().name, 12) }}
-              </span>
-              <span class="profile-user-handle app-post-text" style="display: block;line-height: 1;">
-                @{{ user.getBasic().handle }}
-              </span>
-
+              <user-name :limit="12" :user="user"></user-name>
             </router-link>
 
           </td>
 
           <template v-if="user.getActivity().me">
-            
             <td class="app-tab app-user-info-nav-tab first-buttons-tab pl-2">
-
               <router-link  :to="{ name : 'edit.account', params : { username : user.getBasic().handle } }">
-                
-                  <v-button :type="'primary'">Edit Profile</v-button>
-
+                <v-button :class="[screen ? '' : 'btn-sm']" :type="'primary'">Edit Profile</v-button>
               </router-link>
               
             </td>
@@ -107,30 +85,21 @@
 
     name : "UserNavBuilder",
     data : () => ({
-
       trim : globs.trim,
-
+      screen : globs.app.isMobile
     }),
     components : {
-
       FollowButton
-
     },
     props : ['user'],
     methods : {
-
       ...mapMutations('messages', ['MESSAGE_USER']),
       back : function(){
-
         window.history.back();
-
       }
-
     },
     computed : {
-
       ...mapGetters('tunepik', ['theme'])
-
     }
 
   };

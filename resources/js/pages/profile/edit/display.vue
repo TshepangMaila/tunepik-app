@@ -1,6 +1,6 @@
 <template>
 	
-	<div class="wrapper card no-border">
+	<div class="wrapper">
 		
 		<Navigation>
 			<div class="media-body align-self-center">

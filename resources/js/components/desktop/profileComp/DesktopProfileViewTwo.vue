@@ -8,13 +8,13 @@
 
 			<div class="scroll-wrapper">
 
-		    <div class="card">
+		    <div class="card no-border grey-matter">
 		      
 		      <div class="card-header">
 		        <user-nav-builder :user="user"></user-nav-builder>
 		      </div>
 
-			    <div class="card-body">
+			    <div class="card-body no-border">
 			       <user-info-builder :user="user">
 			         <user-follows-builder :user="user"></user-follows-builder>
 			       </user-info-builder>
@@ -75,15 +75,15 @@
 <style type="text/css" scoped>
 	
 	.user-wrap-cover{
-    border : .05em solid lightgrey;
-    height : 250px;
+    border : .05em solid rgba(211, 211, 211, .100);
+    height : 160px;
   }
 
   .scroll-wrapper{
-    width : 90%;
+    width : 98%;
     position : relative;
-    top : -100px;
-    left : 45px;
+    top : -40px;
+    left : 5px;
   }
 
   .card-header{
