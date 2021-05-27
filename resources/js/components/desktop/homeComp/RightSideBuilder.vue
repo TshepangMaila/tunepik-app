@@ -34,11 +34,11 @@
     .app-right-side-view{
 
       position: fixed;
-      right: 3%;
+      right: 0;
       top: 66px;
       bottom : 0;
       width : 28%;
-      border-left: .04em solid rgba(211, 211, 211, .175);
+      border-left: .04em solid rgba(211, 211, 211, .100);
 
     }
 

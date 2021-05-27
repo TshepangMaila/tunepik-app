@@ -326,6 +326,12 @@ a > span > .app-real-icon:active{
   /* For Screens Of PCs and Laptops */
 @media only screen and (min-width: 700px){
 
+  #main,
+   #view,
+   .row{
+    overflow-x: unset;
+   }
+
   .animate-hearts-body{
       width: 6%;
       position: relative;
@@ -1078,6 +1084,12 @@ a > span > .app-real-icon:active{
 @media only screen and (max-width: 700px){
   /* NEW STYLES */
 
+  #main,
+   #view,
+   .row{
+    overflow-x: hidden;
+   }
+
   .animate-hearts-body{
       width: 6%;
       position: relative;
@@ -1827,11 +1839,7 @@ body{
   Styles That Stay the Same Whether Its Mobile Or PC
 */
 
-   #main,
-   #view,
-   .row{
-    overflow-x: unset;
-   }
+   
    body{
     overflow-x: hidden;
    }

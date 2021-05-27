@@ -21,15 +21,13 @@
   			<div class="space-medium visible-lg"></div>
     			<story-header v-if="screen">
             <story-slide-bundler :url="storyURL">
-            
               <div class="media-left align-self-center p-2">
                 <add-story></add-story>
               </div>
-
             </story-slide-bundler>   
           </story-header>
     			
-    			<feed-posts></feed-posts>
+    			<feed-posts class="feed-posts"></feed-posts>
     		</div>
 
   		<!-- Show Only In Desktops -->
@@ -112,6 +110,26 @@
     border-radius: 20px;
     /*-webkit-box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);
     box-shadow: 0 .5px 1px rgba(0, 0, 0, .175);*/
+
+  }
+
+  
+
+  @media only screen and (min-width: 700px){
+    .row{
+      margin-left: -15px;
+      margin-right: -15px;
+     }
+
+     .col-lg-7{
+      padding: 0;
+     }
+
+     .feed-posts{
+      position: relative;
+      left: 4.5%;
+
+     }
 
   }
 

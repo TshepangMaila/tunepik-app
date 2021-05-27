@@ -27,6 +27,7 @@ export const state = {
 			yellow    : '#ffc107',
 			orange    : '#fd7e14',
 			green     : '#28a745',
+			greymatter: 'rgba(211, 211, 211, .100)',
 			primary   : ['#fd7e14', '#ffc107', '#28a745', '#5bc0de']
 
 		},
@@ -162,25 +163,21 @@ export const actions = {
 			if(state.theme.type == type) return
 
 			if(localStorage.getItem('theme-color')){
-
 				localStorage.removeItem('theme-color')
-
 				localStorage.setItem('theme-color', type)
-
 			}else{
-
 				localStorage.setItem('theme-color', type)
-
 			}
 
 			let iconColor = null
+			let isMobile = screen.width < 700 
 
 			switch (type) {
 
 				case 'theme-light'    :
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.dark : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = state.theme.colors.light;
+						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
 						dispatch('changeManifest', state.theme.colors.light)
 
 					break;
@@ -188,7 +185,7 @@ export const actions = {
 				case 'theme-dark' :
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.light : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = state.theme.colors.dark;
+						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dark : state.theme.colors.greymatter;
 						dispatch('changeManifest', state.theme.colors.dark)
 
 						break;
@@ -196,7 +193,7 @@ export const actions = {
 				case 'theme-dim'	:
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.light : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = state.theme.colors.dim;
+						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dim : state.theme.colors.greymatter;
 						dispatch('changeManifest', state.theme.colors.dim)
 
 					break;
@@ -214,39 +211,39 @@ export const actions = {
 				icon    : iconColor,
 
 			});
-
 	},
 	backgroundColor : function({ state, dispatch }){
 
 		dispatch('toggleColors', state.theme.icons.type)
 
+		let isMobile = screen.width < 700 
+
 		switch (state.theme.type) {
 
 			case 'theme-light'	:
 
-					document.querySelector("#main-body").style.backgroundColor = state.theme.colors.light;
+					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
 					dispatch('changeManifest', state.theme.colors.light)
 
 				break;
 
 			case 'theme-dark'		:
 
-					document.querySelector("#main-body").style.backgroundColor = state.theme.colors.dark;
-
+					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dark : state.theme.colors.greymatter;
 					dispatch('changeManifest', state.theme.colors.dark)
 
 				break;
 
 			case 'theme-dim'	   :
 
-					document.querySelector("#main-body").style.backgroundColor = state.theme.colors.dim;
+					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dim : state.theme.colors.greymatter;
 					dispatch('changeManifest', state.theme.colors.dim)
 
 				break;
 
 			default:
 
-					document.querySelector("#main-body").style.backgroundColor = state.theme.colors.light;
+					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
 					dispatch('changeManifest', state.theme.colors.light)
 
 				break;
@@ -256,15 +253,10 @@ export const actions = {
 	toggleColors     : function({ state, commit }, type){
 
 			if(localStorage.getItem('icon-color')){
-
 				localStorage.removeItem('icon-color')
-
 				localStorage.setItem('icon-color', type)
-
 			}else{
-
 				localStorage.setItem('icon-color', type)
-
 			}
 
 		switch (type) {

@@ -139,7 +139,7 @@
   @media only screen and (min-width : 700px){
 
     .app-media-body-main{
-      border: .04em solid rgba(211, 211, 211, .275);
+      border: .04em solid rgba(211, 211, 211, .200);
     }
 
     .app-media-body{

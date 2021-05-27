@@ -1,50 +1,50 @@
 <template>
+	<div class="wrapper-view">
+		<div class="user-wrap-cover"></div>
+		<div class="row scroll-wrapper">
+			
+			<div class="col-lg-8">
 
-	<div class="wrapper-view row">
-		
-		<div class="col-lg-8">
+				<div class="">
 
-			<div class="user-wrap-cover"></div>
+			    <div class="card no-border card-wrapper">
+			      
+			      <div class="card-header">
+			        <user-nav-builder :user="user"></user-nav-builder>
+			      </div>
 
-			<div class="scroll-wrapper">
+				    <div class="card-body no-border">
+				       <user-info-builder :user="user">
+				         <user-follows-builder :user="user"></user-follows-builder>
+				       </user-info-builder>
 
-		    <div class="card no-border grey-matter">
-		      
-		      <div class="card-header">
-		        <user-nav-builder :user="user"></user-nav-builder>
-		      </div>
+				       <div class="space-small"></div>
 
-			    <div class="card-body no-border">
-			       <user-info-builder :user="user">
-			         <user-follows-builder :user="user"></user-follows-builder>
-			       </user-info-builder>
+				       <center>
+				         <user-stats-builder :user="user"></user-stats-builder>
+				       </center>
+				    </div>
 
-			       <div class="space-small"></div>
-
-			       <center>
-			         <user-stats-builder :user="user"></user-stats-builder>
-			       </center>
 			    </div>
 
-		    </div>
+			     <user-extended-view :user="user"></user-extended-view>
 
-		     <user-extended-view :user="user"></user-extended-view>
+			  </div>
 
-		  </div>
-
-		</div>
-		<div class="col-lg-4">
-			
-			<div class="card no-border grey-matter">
+			</div>
+			<div class="col-lg-4">
 				
-				<div class="card-header">TPIF</div>
-				<div class="card-body no-border"></div>
+				<div class="card no-border">
+					
+					<div class="card-header">TPIF</div>
+					<div class="card-body no-border"></div>
+
+				</div>
 
 			</div>
 
 		</div>
-
-	</div>
+ </div>
 	
 </template>
 
@@ -75,15 +75,26 @@
 <style type="text/css" scoped>
 	
 	.user-wrap-cover{
-    border : .05em solid rgba(211, 211, 211, .100);
+    border : .04em solid rgba(211, 211, 211, .100);
     height : 160px;
+    background-color: #fff;
+  }
+
+  .card-wrapper{
+  	border: .04em solid rgba(211, 211, 211, .100);
   }
 
   .scroll-wrapper{
-    width : 98%;
+    width : 99%;
     position : relative;
     top : -40px;
-    left : 5px;
+    left : 2px;
+  }
+
+  .col-lg-4,
+  .col-lg-10{
+  	margin: 0px;
+  	padding: 0px;
   }
 
   .card-header{

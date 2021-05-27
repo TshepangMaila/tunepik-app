@@ -1,10 +1,10 @@
 <template>
        
-      <div class="app-desktop-base-view wrapper">
+      <div class="app-desktop-base-view">
         
         <div class="row">
 
-        <div class="col-lg-2 icon-nav-wrapper app-col wrapper">
+        <div class="col-lg-2 app-col">
           
           <div class="left-fixed-wrapper wrapper">
             
@@ -28,12 +28,11 @@
 
         </div> <!-- End of Col-lg-2 -->
 
-        <div class="col-lg-10 app-col">
+        <div class="col-lg-10 app-col main-body-desk">
             
             <child></child>
 
         </div>  <!-- End Of App View  End Of Col-lg-10 -->
-
 
         </div> <!-- End Of Row -->
 
@@ -75,6 +74,15 @@
   position: relative;
   left: 5.5%;
   width: 100%;
+}
+
+.col-lg-2{
+  background-color: transparent !important;
+}
+
+.row,
+.app-desktop-base-view{
+  background-color: transparent;
 }
 
 .left-fixed-wrapper{

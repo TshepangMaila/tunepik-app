@@ -250,6 +250,13 @@
 
 <style scoped>
 
+    @media only screen and (min-width: 700px){
+      .list-group-item,
+      .list-group{
+        background-color: transparent;
+      }
+    }
+
    .list-group-item{
     /*border : 0;
     border-bottom: .09em solid rgba(211, 211, 211, .5);*/
