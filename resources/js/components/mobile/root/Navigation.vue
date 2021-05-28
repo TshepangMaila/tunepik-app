@@ -2,7 +2,7 @@
 
 	<div>
 		
-		<div class="breaker" v-if="!screen"></div>
+		<!-- <div class="breaker" v-if="!screen"></div> -->
 
 		<nav :class="[screen ? 'navbar fixed-top' : 'nav-desktop card-header']">
 		
@@ -72,8 +72,6 @@
 		background-color: rgba(211, 211, 211, .175); 
 	}
 
-	.breaker{
-		height: 70px;
-	}
+	
 	
 </style>

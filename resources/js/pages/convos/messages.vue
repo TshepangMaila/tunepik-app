@@ -1,10 +1,6 @@
 <template>
 
-	<columner>
-		
-		<messages-list></messages-list>
-
-	</columner>
+	<messages-list></messages-list>
 	
 </template>
 

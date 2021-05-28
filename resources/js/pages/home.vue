@@ -8,9 +8,9 @@
 
   	</template>
 
-  	<div class="space-large" ></div>
+  	<div class="space-large visible-xs" ></div>
   	<div class="space-medium visible-xs"></div>
-  	<div class="space-large visible-lg"></div>
+  	<!-- <div class="space-large visible-lg"></div> -->
 
   	<!-- <div class="space-large d-sm-none d-lg-block"></div> -->
 
@@ -18,7 +18,7 @@
   		
   		<div class="col-lg-7">
 
-  			<div class="space-medium visible-lg"></div>
+  			<!-- <div class="space-medium visible-lg"></div> -->
     			<story-header v-if="screen">
             <story-slide-bundler :url="storyURL">
               <div class="media-left align-self-center p-2">

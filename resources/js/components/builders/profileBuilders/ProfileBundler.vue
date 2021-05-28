@@ -24,9 +24,9 @@
      </template>
      <template v-else>
 
+      <!-- <div class="space-large"></div>
       <div class="space-large"></div>
-      <div class="space-large"></div>
-      <div class="space-large"></div>
+      <div class="space-large"></div> -->
       <desktop-profile-view-two :user="profile.model"></desktop-profile-view-two>
        
      </template>

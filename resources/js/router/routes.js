@@ -33,8 +33,14 @@ export default [
   /* NAV BARS */
 
   { path : '/home', name: 'home', component: page('home.vue') },
-  { path : '/messages', name : 'chats', component : page('convos/chats.vue')},
-  { path : '/messages/:username', name : 'messages', component : page('convos/messages.vue') },
+  { 
+    path : '/messages',
+    name : 'chats',
+    component : page('convos/chats.vue'),
+    children : [
+      { path : '/messages/:username', name : 'messages', component : page('convos/messages.vue') },
+    ]
+  },
   { path : '/search', name : 'search', component : page('search.vue')},
   { path : '/notifications', name : 'notifications', component : page('notifications.vue')},
   { path : '/explore', name : 'explore', component : page('explore.vue') },

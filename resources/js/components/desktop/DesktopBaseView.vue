@@ -29,7 +29,7 @@
         </div> <!-- End of Col-lg-2 -->
 
         <div class="col-lg-10 app-col main-body-desk">
-            
+            <div class="breaker" v-if="!screen"></div>
             <child></child>
 
         </div>  <!-- End Of App View  End Of Col-lg-10 -->
@@ -65,6 +65,10 @@
 </script>
 
 <style scoped>
+
+.breaker{
+  height: 70px;
+}
 
 .app-col{
   padding-bottom : 3%;
