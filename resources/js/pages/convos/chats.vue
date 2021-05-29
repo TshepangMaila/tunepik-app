@@ -1,11 +1,5 @@
 <template>
 
-	<!-- <columner>
-		
-		<chats-list></chats-list>
-
-	</columner> -->
-
 	<div class="wrapper">
 		
 		<div class="row">
@@ -34,9 +28,7 @@
 				name 				: "Chats",
 				scrollToTop : false,
 				components 	: {
-
 					ChatsList
-
 				}
 
 		};
@@ -48,31 +40,31 @@
 	@media only screen and (min-width: 700px){
 		.block{
 			display: inline-block;
-			border: .04em solid red;
+			border: .04em solid rgba(211, 211, 211, .175);
 		}
 
 		.wrapper{
 			position: fixed;
 			top: 70px;
-			bottom: 5px;
+			bottom: 0;
 			right: 10px;
 		}
 
 		.chats-list{
-			overflow-y: scroll;
+			overflow-y: auto;
 			position: fixed;
 			top: 70px;
-			bottom: 5px;
+			bottom: 0;
 			left: 26%;
 			width: 30%;
 			height: 100%;
 		}
 
 		.messages-list{
-			overflow-y: scroll;
+			overflow-y: auto;
 			position: fixed;
 			top: 70px;
-			bottom: 5px;
+			bottom: 0;
 			right: 10px;
 			width: 43.5%;
 			height: 100%;

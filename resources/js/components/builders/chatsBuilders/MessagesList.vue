@@ -8,7 +8,7 @@
 		</template>
 		<template v-else>
 			<div class="make-one">
-			<Navigation v-if="!file">
+			<Navigation v-if="!file" class="messages-upper-nav bg-white">
 			
 				<div class="media-body">
 
@@ -165,17 +165,11 @@
 				...mapActions("messages", ['getMessages', 'getUser']),
 				...mapMutations("messages", ['FETCH_MESSAGES']),
 				messagesChannel : function(){
-
-					console.log(window.Echo
-										.private(`messages-event.${this.ID.from}.${this.ID.to}`))
-					
-					console.log(this.ID)
-
+		
 					window.Echo
-										.private(`messages-event.${this.ID.from}.${this.ID.to}`)
+										.private(`messages-event.${this.auth.from}.${this.auth.to}`)
 										.listen('.incoming-messages', messages => {
 
-										console.log(messages)
 										this.FETCH_MESSAGES(messages)
 
 					})
@@ -192,7 +186,7 @@
 					return this.$route.params.username;
 
 				},
-				ID : function(){
+				auth : function(){
 					return {
 						from : this.model.getBasic().id,
 						to : this.user.model ? this.user.model.getBasic().id : 0
@@ -232,6 +226,18 @@
 
 <style type="text/css" scoped>
 
+		@media only screen and (min-width: 700px){
+
+			.messages-upper-nav{
+				position: fixed;
+				top: 70px;
+				right: 30px;
+				left: 56%;
+				z-index: 9999 !important;
+
+			}
+
+		}
 
 		@media only screen and (max-width: 700px){
 
@@ -255,6 +261,19 @@
 				bottom: 0;
 				z-index: 9999 !important;
 
+			}
+
+			.wrapper{
+
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 9998 !important;
+				overflow-y: auto;
 			}
 
 		}

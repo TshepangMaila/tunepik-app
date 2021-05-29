@@ -165,13 +165,10 @@ export const actions = {
        		let matcherInterval = setInterval(async () => {
 
        			 detections = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor()
-    					console.log(detections)
-    				 if(detections) resizedDetections = faceapi.resizeResults(detections, displaySize)
-    				  console.log(resizedDetections)
-    					if(resizedDetections )  results = faceMatcher.findBestMatch(resizedDetections.descriptor)
 
-    				
-    				console.log(results)
+    				 if(detections) resizedDetections = faceapi.resizeResults(detections, displaySize)
+    				  
+    				 if(resizedDetections )  results = faceMatcher.findBestMatch(resizedDetections.descriptor)
 
 
     				commit('SET_MESSAGE', detections ? `Recognizing face...` : `No Face Detected` )

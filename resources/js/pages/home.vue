@@ -127,7 +127,7 @@
 
      .feed-posts{
       position: relative;
-      left: 4.5%;
+      left: 1%;
 
      }
 

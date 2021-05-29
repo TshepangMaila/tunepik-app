@@ -1,14 +1,14 @@
 <template>
 
-	<div class="navbar fixed-bottom" v-if="screen && !message.loading">
+	<div class="navbar fixed-bottom" v-if="!message.loading"> <!-- screen && -->
 
 		<look-up class="look-up-wrap"></look-up>
 
-		<div class="media-wrapper" style="width:100%;" v-if="!user.model.getActivity().blocked">
+		<div class="media-wrapper" :style="{width : screen ? '100%' : ''}" v-if="!user.model.getActivity().blocked">
 			
-			<form style="width:100%;" @submit.prevent="sendMessage(formDATA)">
+			<form :style="{width : screen ? '100%' : ''}" @submit.prevent="sendMessage(formDATA)">
 				
-				<div class="media " style="width:100%;">
+				<div class="media" :style="{width : screen ? '100%' : ''}">
 
 					<div class="media-left align-self-center" v-if="record.isRecording || record.audio.file">
 						
@@ -147,8 +147,8 @@
 		data 			: () => ({
 			screen : globs.app.isMobile,
 			form 		: {
-						text 	: '',
-						media : null,
+				text 	: '',
+				media : null,
 			},
 			typing : false,
 			recordText : '',
@@ -289,8 +289,22 @@
 <style scoped type="text/css">
 	
 
-		@media only screen and (max-width: 700px){
+		@media only screen and (min-width: 700px){
 
+			.fixed-bottom{
+				border-top: .04em solid rgba(211, 211, 211, .175);
+				right: 30px;
+				left: 55.8%
+			}
+
+			.media-wrapper{
+				position: fixed;
+				bottom:0;
+				left: 55.8%;
+				right: 30px;
+				height: 45px;
+				width: wrap;
+			}
 
 		}
 
@@ -300,13 +314,15 @@
 			left: 10%;
 		}
 
-		.media-wrapper{
-			position: fixed;
-			bottom:0;
-			left: 0;
-			right: 0;
-			height:45px;
-			width: 100%;
+		@media only screen and (max-width: 700px){
+			.media-wrapper{
+				position: fixed;
+				bottom:0;
+				left: 0;
+				right: 0;
+				height:45px;
+				width: 100%;
+			}
 		}
 
 		.upload-text{
@@ -324,10 +340,7 @@
 		}
 
 		.navbar{
-
 			box-shadow: 0 0 0 0 transparent;
-			border: 0;
-
 		}
 
 		.app-fa{

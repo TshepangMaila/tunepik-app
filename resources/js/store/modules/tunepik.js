@@ -177,7 +177,7 @@ export const actions = {
 				case 'theme-light'    :
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.dark : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
+						document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.light 
 						dispatch('changeManifest', state.theme.colors.light)
 
 					break;
@@ -185,7 +185,7 @@ export const actions = {
 				case 'theme-dark' :
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.light : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dark : state.theme.colors.greymatter;
+						document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.dark 
 						dispatch('changeManifest', state.theme.colors.dark)
 
 						break;
@@ -193,7 +193,7 @@ export const actions = {
 				case 'theme-dim'	:
 
 						iconColor = state.theme.icons.type == 'default' ? state.theme.colors.light : state.theme.icons.color
-						document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dim : state.theme.colors.greymatter;
+						document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.dim 
 						dispatch('changeManifest', state.theme.colors.dim)
 
 					break;
@@ -222,28 +222,28 @@ export const actions = {
 
 			case 'theme-light'	:
 
-					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
+					document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.light 
 					dispatch('changeManifest', state.theme.colors.light)
 
 				break;
 
 			case 'theme-dark'		:
 
-					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dark : state.theme.colors.greymatter;
+					document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.dark 
 					dispatch('changeManifest', state.theme.colors.dark)
 
 				break;
 
 			case 'theme-dim'	   :
 
-					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.dim : state.theme.colors.greymatter;
+					document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.dim 
 					dispatch('changeManifest', state.theme.colors.dim)
 
 				break;
 
 			default:
 
-					document.querySelector("#main-body").style.backgroundColor = isMobile ? state.theme.colors.light : state.theme.colors.greymatter;
+					document.querySelector("#main-body").style.backgroundColor =  state.theme.colors.light 
 					dispatch('changeManifest', state.theme.colors.light)
 
 				break;
