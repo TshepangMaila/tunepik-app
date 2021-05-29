@@ -2,11 +2,11 @@
        
   <div class="app-right-side-view pt-4">
 
-    <AddPost ></AddPost>
+    <add-post></add-post>
 
     <div class="space-medium"></div>
 
-    <Suggestions ></Suggestions>
+    <Suggestions></Suggestions>
 
     <div class="space-small"></div>
 
@@ -24,13 +24,19 @@
           </div>
           <div class="media-right align-self-center">
             
-            <a @click="show = !show">
-              <i class="fa" :class="[show ? 'fa-chevron-down' : 'fa-chevron-up']"></i>
+            <a @click="show = !show" v-show="!show">
+              <i class="fa app-fa fa-chevron-up"></i>
+            </a>
+
+            <a @click="show = !show" v-show="show">
+              <i class="fa app-fa fa-chevron-down"></i>
             </a>
 
           </div>
         </div>
-        <div class="card-body" v-if="show"></div>
+        <div class="card-body" v-if="show">
+          <chats-view></chats-view>
+        </div>
 
       </div>
     </div>
@@ -43,6 +49,7 @@
   import {mapGetters} from 'vuex';
   import AddPost from './AddPost'
   import Suggestions from './Suggestions'
+  import ChatsView from '../../builders/chatsBuilders/ChatsView'
 
     export default {
       name: "RightSideBuilder",
@@ -51,7 +58,8 @@
       }),
       components : {
         AddPost,
-        Suggestions
+        Suggestions,
+        ChatsView
       },
       computed : {
         ...mapGetters('auth', ['model']),

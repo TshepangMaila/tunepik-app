@@ -7,9 +7,7 @@
 			<div class="media">
 				
 				<div class="media-left">
-
 					<Picture :width="45" :height="45" :user="message"></Picture>
-
 				</div>
 				<div class="media-body pl-3">
 					
@@ -17,9 +15,7 @@
 						{{ trim(message.getBasic().name, 20) }}
 					</span>
 					<span class="app-post-text" v-if="message.getChat().type == 'text'">
-						
 						{{ trim(message.getChat().message, 50) }}
-
 					</span>
 					<span class="app-post-text" v-else>
 						{{ message.getBasic().name }} sent a {{ message.getChat().type }}
@@ -55,11 +51,9 @@
 
 	export default {
 		name : 'ChatItem',
-		data 			: function() {
-	 	  return {
-	 	  	trim   : globs.trim,
-	 	  }
-		},
+		data 			: () => ({
+			trim : globs.trim
+		}),
 		props : ['message'],
 		computed : {
 			...mapGetters('tunepik', ['theme'])
