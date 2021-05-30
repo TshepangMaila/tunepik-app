@@ -41,6 +41,8 @@
 
 				</div>
 
+				<user-side-profile :user="user" v-if="userSideProfile.show"></user-side-profile>
+
 				<chats-bottom-popper class="profile-popper"></chats-bottom-popper>
 
 			</div>
@@ -52,11 +54,13 @@
 
 <script type="text/javascript">
 
+	 import { mapGetters } from 'vuex'
 	 import UserInfoBuilder from '../../builders/profileBuilders/UserInfoBuilder'
 	 import UserFollowsBuilder from '../../builders/profileBuilders/UserFollowsBuilder'
 	 import UserExtendedView from '../../builders/profileBuilders/UserExtendedView'
 	 import UserStatsBuilder from '../../builders/profileBuilders/UserStatsBuilder'
 	 import UserNavBuilder from '../../builders/profileBuilders/UserNavBuilder'
+	 import UserSideProfile from '../../builders/profileBuilders/UserSideProfile'
 	 import ChatsBottomPopper from '../../builders/chatsBuilders/ChatsBottomPopper'
 
 	export default {
@@ -69,7 +73,11 @@
 			UserExtendedView,
 			UserStatsBuilder,
 			UserNavBuilder,
+			UserSideProfile,
 			ChatsBottomPopper
+		},
+		computed : {
+			...mapGetters("profile", ['userSideProfile']),
 		}
 
 	};
