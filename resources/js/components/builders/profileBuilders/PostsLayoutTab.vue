@@ -39,6 +39,7 @@
 <script>
 
 		import { mapGetters, mapActions, mapMutations } from 'vuex'
+		import globs from '../../../tunepik/attack.js'
 
 		export default {
 
@@ -48,7 +49,8 @@
 			  		list : '',
 			  		grid : '',
 			  		liked: ''
-			  	}
+			  	},
+			  	screen : globs.app.isMobile
 			  }),
 			  props :   ['headerText', 'user'],
 		  	computed : {
@@ -101,7 +103,7 @@
 		  		this.underliner(this.headerText.toString())
 		  	},
 		  	mounted : async function(){
-		  		this.scroller(await this.params)
+		  		if(!this.screen) this.scroller(await this.params)
 		  	},
 		  	watch : {
 
@@ -159,7 +161,7 @@
 
   	.action-profile-nav{
   		border: 0;
-  		border-top: .04em solid rgba(211, 211, 211, .100);
+  		border-bottom: .04em solid rgba(211, 211, 211, .175);
   	}
 
   	.action-nav-icon{

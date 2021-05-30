@@ -1,6 +1,6 @@
 <template>
 
-  <div class="navbar app-nav navbar-expand-sm fixed-bottom">
+  <div class="navbar app-nav navbar-expand-sm fixed-bottom" style="padding:0;">
     <table class="nav-table">
       <tr>
         <td class="">
@@ -11,6 +11,7 @@
                   <Icon :icon="'home'" :width="iconSize" :height="iconSize" :color="colors.home" ></Icon>
                 </a>
               </span>
+              <span class="app-grey-text-sm icon-text block-text">Home</span>
             </router-link>
           </center>
         </td>
@@ -23,6 +24,7 @@
                      </a>
                     </span>
                     <span class="app-badge msg-badge icon-text icon-badge"></span>
+                    <span class="app-grey-text-sm icon-text block-text">Search</span>
                 </router-link>
             </center>
         </td>
@@ -48,7 +50,7 @@
                     <span class="app-badge msg-badge icon-text icon-badge" :style="{backgroundColor : indicatorColor}">
                       {{ counter.messages }}
                     </span>
-                    <!-- <span class="app-grey-text-sm visible-lg visible-xs icon-text">Search</span> -->
+                    <span class="app-grey-text-sm icon-text block-text">Messages</span>
                 </router-link>
             </center>
         </td>
@@ -63,8 +65,8 @@
                 <span class="app-badge notif-badge icon-text icon-badge" :style="{backgroundColor : indicatorColor}">
                   {{ counter.notifications }}
                 </span>
-                <!-- <span class="app-grey-text-sm visible-lg visible-xs icon-text">Notifs
-                </span> -->
+                <span class="app-grey-text-sm icon-text block-text">Notifs
+                </span>
 
             </router-link>
           </center>
@@ -247,6 +249,10 @@ export default {
     position: relative;
     top: -5px;
 
+  }
+
+  .block-text{
+    padding-top: .3rem;
   }
 
 /*  .app-nav{

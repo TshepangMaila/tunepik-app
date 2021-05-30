@@ -15592,7 +15592,7 @@ https://flickity.metafizzy.co
 /*@media only screen and (max-width : 700px){*/
 
 .feed-comment-wrapper {
-  border-top: 0.03em solid rgba(108, 117, 125, 0.5);
+  border-top: 0.03em solid rgba(108, 117, 125, 0.1);
 }
 
 .main-layout.theme-dark {
@@ -15712,7 +15712,7 @@ https://flickity.metafizzy.co
   }
 
   .main-layout.theme-light .feed-comment-wrapper {
-    border-top: 0.03em solid rgba(108, 117, 125, 0.5);
+    border-top: 0.03em solid rgba(108, 117, 125, 0.1);
   }
 
   .main-layout.theme-light .wrapper {
@@ -15750,7 +15750,7 @@ https://flickity.metafizzy.co
 }
 
 .main-layout.theme-dim .feed-comment-wrapper {
-  border-top: 0.03em solid rgba(108, 117, 125, 0.5);
+  border-top: 0.03em solid rgba(108, 117, 125, 0.1);
 }
 
 .main-layout.theme-dim .item-block > .dark {

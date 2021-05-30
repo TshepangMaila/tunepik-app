@@ -1,20 +1,19 @@
 <template>
 
-	<div class="wrapper row">
-		
-		<div class="col-lg-8">
+	<div class="wrapper">
 			
-			<div class="space-large"></div>
-			<div class="space-large"></div>
-			<div class="space-large"></div>
-			<!-- COVER IMAGE -->
-			<div class="skeleton-shimmer cover-shade"></div>
+		<div class="space-large"></div>
+		<div class="space-large"></div>
+		<div class="space-large"></div>
+		<!-- COVER IMAGE -->
+		<div class="skeleton-shimmer cover-shade"></div>
 
-			<!-- USER INFO -->
-			<div class="user-info-wrapper">
+		<div class="row user-info-wrapper">
+			
+			<div class="col-lg-7">
 				
 				<div class="card">
-					
+				
 					<div class="card-header">
 						
 						<!-- NAVIGATION -->
@@ -106,9 +105,13 @@
 				<PostSkeleton></PostSkeleton>
 
 			</div>
+			<div class="col-lg-5 skeleton-shimmer cover-shade">
+				
+			</div>
 
 		</div>
-		<div class="col-lg-4 skeleton-shimmer cover-shade"></div>
+
+			<!-- END OF NEW SKELETON -->
 
 	</div>
 	
@@ -134,7 +137,7 @@
   	width : 90%;
     position : relative;
     top : -100px;
-    left : 45px;
+    left : 2px;
   }
 
   .bio-shade{

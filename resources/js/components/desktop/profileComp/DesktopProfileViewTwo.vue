@@ -54,7 +54,7 @@
 
 <script type="text/javascript">
 
-	 import { mapGetters } from 'vuex'
+	 import { mapGetters, mapMutations } from 'vuex'
 	 import UserInfoBuilder from '../../builders/profileBuilders/UserInfoBuilder'
 	 import UserFollowsBuilder from '../../builders/profileBuilders/UserFollowsBuilder'
 	 import UserExtendedView from '../../builders/profileBuilders/UserExtendedView'
@@ -76,8 +76,14 @@
 			UserSideProfile,
 			ChatsBottomPopper
 		},
+		methods : {
+			...mapMutations("profile", ['SIDE_PROFILE']),
+		},
 		computed : {
 			...mapGetters("profile", ['userSideProfile']),
+		},
+		mounted : function(){
+			this.SIDE_PROFILE({ show : false })
 		}
 
 	};
