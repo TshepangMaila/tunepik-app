@@ -41,6 +41,8 @@
 
 				</div>
 
+				<chats-bottom-popper class="profile-popper"></chats-bottom-popper>
+
 			</div>
 
 		</div>
@@ -55,6 +57,7 @@
 	 import UserExtendedView from '../../builders/profileBuilders/UserExtendedView'
 	 import UserStatsBuilder from '../../builders/profileBuilders/UserStatsBuilder'
 	 import UserNavBuilder from '../../builders/profileBuilders/UserNavBuilder'
+	 import ChatsBottomPopper from '../../builders/chatsBuilders/ChatsBottomPopper'
 
 	export default {
 		name : "DesktopProfileViewTwo",
@@ -65,7 +68,8 @@
 			UserFollowsBuilder,
 			UserExtendedView,
 			UserStatsBuilder,
-			UserNavBuilder
+			UserNavBuilder,
+			ChatsBottomPopper
 		}
 
 	};
@@ -76,7 +80,7 @@
 	
 	.user-wrap-cover{
     border : .04em solid rgba(211, 211, 211, .100);
-    height : 160px;
+    height : 250px;
     background-color: #fff;
   }
 
@@ -99,6 +103,10 @@
 
   .card-header{
     padding : 0;
+  }
+
+  .profile-popper{
+  	left: 72%;
   }
 
 </style>

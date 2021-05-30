@@ -57,6 +57,9 @@ export const state = {
 
 		users : []
 
+	},
+	userSideProfile : {
+		show : false
 	}
 }
 
@@ -68,6 +71,7 @@ export const getters = {
 	follows : state => state.follows,
 	grid 		: state => state.grid,
 	profiles : state => state.profiles,
+	userSideProfile : state => state.userSideProfile,
 
 }
 
@@ -183,10 +187,11 @@ export const mutations = {
 					}
 
 					if(!isFound) state.profiles.users.push(profile)
-
+				
 				}
 
-	}
+	},
+	SIDE_PROFILE : (state, args) => state.userSideProfile.show = args.show,
 
 }
 
@@ -197,9 +202,7 @@ export const actions = {
 		commit('setGridLoading', true);
 
 		  if(!state.posts.list){
-
 		  	await dispatch('getUserPosts', {url : `/api/posts/user/${state.user.model.getBasic().id}/`});
-
 		  }
 
 			if(type == 'all'){

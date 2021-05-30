@@ -26,7 +26,7 @@
 
 		 	<slot></slot>
 
-		 	<div class="list-group" v-else>
+		 	<div class="list-group" v-if="!chat.error">
 
 		 		<div class="list-group-item p-3 pt-4 list-group-item-action" v-for="(message, i) in chat.chats" :key="i">
 		 			<chat-item :message="message"></chat-item>
@@ -80,4 +80,25 @@
 
 </script>
 
-<style type="text/css" scoped></style>
+<style type="text/css" scoped>
+	
+	.list-group-item{
+
+		border : 0;
+		/*border-bottom: .03em solid rgba(211, 211, 211, .125);*/
+
+	}
+	.card-body,
+	.card{
+
+		padding: 0;
+		box-shadow: 0 0 0 0 transparent;
+
+	}
+
+	.fa-times{
+		width: 26px;
+		height: 26px;
+	}
+
+</style>
