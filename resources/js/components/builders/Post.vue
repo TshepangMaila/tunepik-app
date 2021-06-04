@@ -79,17 +79,10 @@
 
         name        : "Post",
         scrollToTop : false,
-        data    : () => {
-
-          return {
-
-            screen : globs.app.isMobile
-
-          }
-
-        },
+        data    : () => ({
+          screen : globs.app.isMobile
+        }),
         components  : {
-
           MediaBodySwitch,
           TextBodyBuilder,
           DeletedBodyBuilder,
@@ -97,7 +90,6 @@
           HeaderBodyBuilder,
           ShareBodyBuilder,
           CommentBodyBuilderTwo
-
         },
         props       : ['post', 'comments']
 
