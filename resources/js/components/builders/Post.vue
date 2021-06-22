@@ -130,8 +130,13 @@
 
   @media only screen and (min-width : 700px){
 
-    .app-media-body-main{
+    /*.app-media-body-main{
       border: .04em solid rgba(211, 211, 211, .200);
+    }*/
+
+    .post-breaker{
+      border-bottom: .04em solid rgba(211, 211, 211, .175);
+      margin-bottom: 15px;
     }
 
     .app-media-body{

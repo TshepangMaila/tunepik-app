@@ -28,17 +28,14 @@
               
           </div>
           <div class="col-lg-4 ">
-               <center>
+               <!-- <center> -->
                  <div class="search-bar-lg">
                   <table class="app-search-table" style="">
                     <tr>
                       <td class="app-search-tab app-search-icon-tab" style="padding-top: 1%;">
-                          <center>
-                              <!-- <span class="app-search-lg">
-                                <svg-vue icon="search" class="app-icon" ></svg-vue>
-                              </span> -->
-                              <Icon :icon="'search'" :width="20" :height="20"></Icon>
-                          </center>
+                        <center>
+                          <Icon :icon="'search'" :width="20" :height="20"></Icon>
+                        </center>
                       </td>
                       <td class="app-search-tab-input" >
                           <input type="search" class="app-input-field app-search-input root" name="search" placeholder="Search TunePik" v-on:keyup="query = $event.target.value" />
@@ -46,34 +43,49 @@
                     </tr>
                   </table>
                 </div>
-              </center>
+              <!-- </center> -->
               <div class="app-dropdown-menu" style="z-index:9999 !important;" v-if="query != ''">
-                            
                 <SearchView :q="query"></SearchView>
-
               </div>
             </div>
           <div class="col-lg-4 darkmode-wrapper" style="">
-            <div class="loading-wrapper skeleton-shimmer" v-if="loading"></div>
-            <div class="" v-else>
-              <div class="user-wrapper media" v-if="check">
-                  
-                  <Picture class="pb-1" :user="model" :height="45" :width="45"></Picture>
-                  <div class="media-body pl-2 align-self-center">
-                    <router-link :to="{ name : 'profile', params : { username : model.getBasic().handle } }">
-                      <user-name :user="model"></user-name>
-                    </router-link>
-                  </div>
-                  <div class="media-left align-self-center"></div>
+
+            <div class="row">
+              <div class="col-lg-4"></div>
+              <div class="col-lg-4">
                 
-              </div>
-              <div class="login-wrapper media" v-else>
-                  <div class="media-left align-self-center">
-                    <v-button :type="'primary'">Login</v-button>
+                <div class="loading-wrapper skeleton-shimmer" v-if="loading"></div>
+
+                  <div class="" v-else>
+
+                    <div class="user-wrapper media" v-if="check">
+                        
+                        <Picture class="align-self-center" :user="model" :height="45" :width="45"></Picture>
+
+                        <div class="media-body pl-2 pb-2 align-self-center">
+                          <a @click="show = !show">
+                            <user-name :user="model"></user-name>
+                          </a>
+                          <div class="user-options" style="z-index:9999 !important;" v-if="show">
+                            <desktop-user-nav-options :user="model"></desktop-user-nav-options>
+                          </div>
+                        </div>
+                        <div class="media-right align-self-center"></div>
+                      
+                    </div>
+
+                    <div class="login-wrapper media" v-else>
+
+                      <div class="media-left align-self-center">
+                        <v-button :type="'primary'">Login</v-button>
+                      </div>
+                      <div class="media-right align-self-center pl-2">
+                        <v-button :type="'primary'">Create Account</v-button>
+                      </div>
+
+                    </div>
                   </div>
-                  <div class="media-right align-self-center pl-2">
-                    <v-button :type="'primary'">Create Account</v-button>
-                  </div>
+
               </div>
             </div>
             
@@ -87,24 +99,22 @@
 <script>
 import { mapGetters } from 'vuex'
 import SearchView from '../builders/SearchView'
+import DesktopUserNavOptions from '../builders/popupBuilders/DesktopUserNavOptions'
 
 export default {
   name : "DesktopNavBar",
   scrollToTop : false,
   components : {
-
-    SearchView
-
+    SearchView,
+    DesktopUserNavOptions
   },
   data: () => ({
     appName : window.config.appName,
-    query   : ''
+    query   : '',
+    show : false
   }),
-
   computed: {
-
     ...mapGetters("auth", ['user', 'check', 'loading', 'model']),
-
   },
   methods: {
     async logout () {
@@ -125,11 +135,35 @@ export default {
     height: 40px;
   }
 
+/*  .user-wrapper{
+    position: relative;
+    top: -8px;
+  }
+*/
+  .search-bar-lg{
+    width: 80%;
+  }
+
+  .desktop-nav{
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .user-options{
+    z-index: 9999 !important;
+    position: fixed;
+    top: 60px;
+    right: 10%;
+    width: 15%;
+    height: wrap;
+    border-radius: 5px;
+  }
+
   .app-dropdown-menu{
     z-index: 9999 !important;
     position: fixed;
     top : 50px;
-    border : .04em solid rgba(211, 211, 211, .3);
+    border : .04em solid rgba(211, 211, 211, .100);
     width: 350px;
     max-height: 80%;
     overflow-y: auto;
@@ -139,8 +173,8 @@ export default {
 
   .row,
   .container-fluid{
-    overflow: hidden;
-    height: 50px;
+   /* overflow: hidden;*/
+    height: 65px;
   }
 
 </style>
