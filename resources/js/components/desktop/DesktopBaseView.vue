@@ -76,7 +76,7 @@
 
 .col-lg-10{
   position: relative;
-  left: 5.5%;
+  left: 10px;
   width: 100%;
 }
 

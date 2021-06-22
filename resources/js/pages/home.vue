@@ -114,22 +114,27 @@
   }
 
   
-
   @media only screen and (min-width: 700px){
     .row{
-      margin-left: -15px;
-      margin-right: -15px;
+      /*margin-left: -15px;
+      margin-right: -80px;*/
+      margin-right: -20%;
+      margin-left: -2%;
      }
 
      .col-lg-7{
       padding: 0;
      }
 
-     .feed-posts{
+     /*.feed-posts{
       position: relative;
       left: 1%;
 
-     }
+     }*/
+
+     /*.col-lg-5{
+     	margin-left: 40px;
+     }*/
 
   }
 
